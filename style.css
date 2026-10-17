@@ -1,0 +1,324 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.mullish {
+  font-family: "Sofia", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+header {
+  background-image: url(./Assets/photos/header-background.png);
+  min-height: 100vh;
+  width: 100%;
+  padding: 0px 120px;
+
+  @media screen and (max-width: 760px) {
+    padding: 0px 30px;
+    min-height:100vh;
+    gap: 0px;
+  }
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+    display:flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content:center;
+    min-height:45vh;
+  }
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+header > * {
+  position: relative;
+  z-index: 2;
+}
+.hamburger {
+  margin-top: 10px;
+  margin-bottom: 0px;
+
+  @media screen and (max-width: 760px) {
+    display: block;
+  }
+}
+.sideNavView {
+  @media screen and (max-width: 760px) {
+    position: absolute;
+    padding: 60px 20px;
+    height:100vh;
+    background: rgba(181, 136, 29, 0.824);
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(181, 136, 29, 0.824);
+    box-shadow: 0 8px 32px rgba(245, 172, 3, 0.926);
+  }
+}
+.mobile-nav-link {
+  margin-top: 15px;
+}
+.nav-menu {
+  width: 100%;
+  padding: 0 30px;
+}
+.header-content {
+  margin-top: 60px;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 0px;
+  }
+}
+.search {
+  padding: 3px 10px;
+  width: 90%;
+}
+.f-content {
+  margin-top: 30px;
+}
+.text-area {
+  margin-top: 70px;
+}
+.text-area p {
+  font-family: cursive;
+  margin-top: 15px;
+}
+.text-area button {
+  margin-top: 12px;
+  padding: 5px;
+}
+.section-1 {
+  width: 100%;
+  padding: 0px 120px;
+  margin-top: 50px;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 30px;
+  }
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.section-1 button {
+  margin-top: 12px;
+  padding: 5px;
+}
+.section-2,
+.section-3 {
+  width: 100%;
+  padding: 0px 120px;
+  margin-top: 70px;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 30px;
+  }
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.section-3 .image-2 {
+  margin-top: 67px;
+}
+.features p {
+  margin-top: 0;
+}
+.section-4 {
+  background-image: url(./Assets/photos/client\ section\ bg.png);
+  width: 100%;
+  margin-top: 70px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0px 120px;
+  position: relative;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 20px 30px;
+    gap: 40px;
+  }
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+    height: 250px;
+  }
+}
+.section-4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.section-4 > * {
+  position: relative;
+  z-index: 1;
+}
+.section-5 {
+  width: 100%;
+  padding: 0px 120px;
+  margin-top: 70px;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 30px;
+  }
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.sec-5-bg-img {
+  background-image: url(./Assets/photos/lettuce\ leaf\ leafs.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.chef {
+  width: 100%;
+  padding: 0px 120px;
+  margin-top: 70px;
+  background-image: url(./Assets/photos/chef-bg.png);
+  background-position: left;
+  background-size: 215px;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 30px;
+    background-image: url(./Assets/photos/chef-bg.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.chef button {
+  padding: 2px;
+  margin-top: 10px;
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    margin-top:15px;
+  }
+}
+.chefs-images {
+  margin-top: 15px;
+}
+.testimonials {
+  width: 100%;
+  padding: 0 120px;
+  margin-top: 70px;
+  position: relative;
+  overflow: visible;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 30px;
+  }
+  @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.white-area {
+  margin-top: 80px;
+  background-image: url(./Assets/photos/Testimonial-bg.png);
+  background-position: calc(100% + 100px) calc(100% + 80px);
+  background-size: 350px;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  overflow: visible;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 0px 20px 20px 20px;
+    background-image: url(./Assets/photos/Testimonial-bg.png);
+    background-position: calc(100% + 100px) calc(100% + 80px);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.white-area h4,
+.white-area span {
+  margin-top: -10px;
+}
+.client-pics {
+  margin-top: -40px;
+}
+.section-6 {
+  width: 100%;
+  margin: 100px 0px;
+  padding: 70px 150px;
+  background-image: url(./Assets/photos/sec-6-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.blog {
+  width: 100%;
+  padding: 0px 120px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 760px) {
+    padding: 0px 30px;
+  }
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 0px 50px;
+  }
+}
+.card-text {
+  margin: 10px 0 20px;
+}
+footer {
+  width: 100%;
+  padding-right: 0px 120px;
+  margin-top: 70px;
+  background-image: url(./Assets/photos/footer-image.png);
+  background-position: calc(100% + 30px) calc(100% + 20px);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  overflow: visible;
+  position: relative;
+}
+footer {
+  padding-top: 50px;
+}
+footer input,
+footer button {
+  padding: 0px 10px;
+}
+.colored-area {
+  padding: 10px 135px;
+  width: 100%;
+
+  @media screen and (max-width: 760px) {
+    padding: 10px 0px 10px 30px;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 10px 0px 10px 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

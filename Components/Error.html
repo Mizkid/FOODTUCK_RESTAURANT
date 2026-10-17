@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./componentsStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Error 404</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header
+      class="views-header flex flex-col w-[100%] h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+    >
+      <div
+        class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
+      >
+        <div class="flex items-center justify-between w-[100%]">
+          <h3 class="text-amber-400 text-xl font-medium">
+            Food<span class="text-white">tuck</span>
+          </h3>
+          <nav class="flex gap-5 font-small text-sm">
+            <a href="../index.html" class="hover:text-amber-500">Home</a>
+            <a href="./Menu.html" class="hover:text-amber-500">Menu</a>
+            <a href="./Blog.html" class="hover:text-amber-500">Blog</a>
+            <a href="#" class="hover:text-amber-500">Pages</a>
+            <a href="./About.html" class="hover:text-amber-500">About</a>
+            <a href="./Shop.html" class="hover:text-amber-500">Shop</a>
+            <a href="#" class="hover:text-amber-500">Contact</a>
+          </nav>
+          <div class="search-bag flex gap-2">
+            <span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <a href="../Components/SignUp.html"><i class="fa-regular fa-user"></i></a>
+            <span><i class="fa-solid fa-bag-shopping"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- HAMBURGER/SEARCH -->
+      <div
+        class="lg:hidden md:hidden flex items-center justify-between w-[100%] px-[40px] bg-gray-900/98"
+      >
+        <button
+          id="menuBtn"
+          class="hamburger block text-3xl text-white lg:hidden focus:outline-none transition-all cursor-pointer"
+          aria-label="toggleMenu"
+          type="button"
+        >
+          &#9776;
+        </button>
+        <div class="search-bag flex gap-2 text-white">
+          <span>
+            <i
+              class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"
+            ></i>
+          </span>
+          <a href="../Components/SignUp.html"
+            ><i
+              class="fa-regular fa-user cursor-pointer hover:text-amber-500"
+            ></i
+          ></a>
+          <span
+            ><i
+              class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
+            ></i
+          ></span>
+        </div>
+      </div>
+      <div
+        class="header-text flex flex-col items-center justify-between w-[30%] gap-3 self-center text-white"
+      >
+        <h3 class="text-xl font-bold">404 Error</h3>
+        <p class="text-xs font-thin hover:text-amber-500">
+          <a href="../index.html">
+            Home > <span class="text-amber-500 hover:text-white">404</span>
+          </a>
+        </p>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="mobileMenu"
+        class="sideNavView hidden md:hidden fixed inset-0 w-[40%] h-[100vh] z-2 bg-[#0d0d0d]/95 text-white flex flex-col items-start px-4 pt-10 gap-2"
+      >
+        <h3
+          class="absolute text-amber-500 text-xl font-bold top-2 left-3 select-none"
+        >
+          Food<span class="text-white text-lg">tuck</span>
+        </h3>
+        <!-- Close Button -->
+        <button
+          id="closeMenu"
+          class="text-xl text-center absolute top-2 right-3 cursor-pointer text-white hover:text-amber-500 focus:outline-none"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="flex flex-col items-start justify-center gap-5 mt-10">
+          <a
+            href="../index.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="../Views/Menu.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Menu</a
+          >
+          <a
+            href="../Views/Blog.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Blog</a
+          >
+          <a
+            href="../Views/About.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="../Views/Shop.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Shop</a
+          >
+          <a
+            href="../Views/Contact.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Contact</a
+          >
+          <a
+            href="../Components/SignUp.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="flex flex-col items-center justify-center w-[100%] px-[40px] lg:px[120px] mt-20"
+    >
+      <h1 class="text-3xl text-amber-500 font-bold">404</h1>
+      <h3 class="text-lg text-gray-900 font-medium mt-3">
+        Oops! Look likes something going wrong
+      </h3>
+      <p class="text-xs text-gray-600 font-lg mt-3 text-center w-80">
+        Page cannot be found! we'll have it figured out in no time. Meanwhile,
+        check out these fresh ideas:
+      </p>
+      <button class="bg-amber-500 text-white text-xs text-center font-semibold px-6 py-2 rounded-lg mt-5">
+        <a href="../index.html">Go to home</a>
+      </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-black flex flex-col items-center gap-6 text-white mt-20 pt-[70px]"
+    >
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[70%] sm:w-[70%] lg:w-[70%]"
+      >
+        <div class="flex flex-col items-start gap-1">
+          <h3 class="text-sm lg:text-xl sm:text-base font-medium">
+            <span class="text-amber-500">St</span>ill You Need Our Support ?
+          </h3>
+          <p class="text-xs lg:text-base font-thin opacity-80">
+            Don't wait make a smart & logical quote here. its pretty easy.
+          </p>
+        </div>
+        <div class="flex gap-0 h-8">
+          <input
+            class="bg-amber-500 w-[70%] text-xs placeholder:text-white placeholder:opacity-60 focus:border-blue-500 focus:outline-none"
+            type="mail"
+            placeholder="Enter Your Mail"
+          />
+          <button class="w-[40%] bg-white text-xs text-amber-400">
+            Suscribe Now
+          </button>
+        </div>
+      </div>
+
+      <span class="border border-amber-500 h-[1px] w-[70%] self-center"></span>
+
+      <div
+        class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"
+      >
+        <div
+          class="flex flex-col items-center sm:items-start lg:items-start justify-between gap-4 w-[100%] sm:w-[100%] lg:w-[40%]"
+        >
+          <h3 class="font-medium text-lg w-[40%]">About Us.</h3>
+          <p class="text-xs w-[70%]">
+            Cooperate clients and travelers has been relying on Groundlink for
+            dependsb safe and professional chaffeured car service in major
+            cities accross world.
+          </p>
+          <div class="flex gap-3 lg:w-[60%]">
+            <div class="bg-amber-400 flex items-center justify-center w-15">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </div>
+            <div class="flex flex-col items-start justify-center gap-[-2px]">
+              <p class="text-sm">Opening Hours</p>
+              <p class="text-xs">Mon - Sat(8.00 - 6.00)</p>
+              <p class="text-xs">Sunday - Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] sm:m-0 lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Useful Links</p>
+          <a href="./About.html" class="text-sm font-small hover:text-amber-500"
+            >About</a
+          >
+          <a href="./Blog.html" class="text-sm font-small hover:text-amber-500"
+            >News</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Partners</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Team</a
+          >
+          <a href="./Menu.html" class="text-sm font-small hover:text-amber-500"
+            >Menu</a
+          >
+          <a
+            href="./Contact.html"
+            class="text-sm font-small hover:text-amber-500"
+            >Contacts</a
+          >
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Help?</p>
+          <a href="" class="text-sm font-small hover:text-amber-500">FAQ</a>
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Terms & conditions</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Reporting</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Documentation</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Support Policy</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500">Privacy</a>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[35%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Recent Post</p>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/chicken-cream.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">Is fastfood good for your body?</p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="lg:w-26 w-20 h-15"
+              src="../Assets/photos/burger and chips.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Change your food habit with organic food
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/fresh-bread.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Do you like fastfood for your life?
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-center gap-3 justify-between px-[90px] w-[100%] lg:w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:flex lg:items-center lg:justify-between bg-gray-400 text-white lg:px-[160px] py-3"
+      >
+        <div class="text-xs text-gray-800 self-center">
+          Copyright &copy; 2026 by CodeWithOla. All Rights Reserved.
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-pinterest"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

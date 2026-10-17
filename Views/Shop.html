@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./ViewsStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Our Shop</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header
+      class="views-header flex flex-col w-[100%] h-[35vh] lg:h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+    >
+      <div
+        class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
+      >
+        <div class="flex items-center justify-between w-[100%]">
+          <h3 class="text-amber-400 text-xl font-medium">
+            Food<span class="text-white">tuck</span>
+          </h3>
+          <nav class="flex gap-5 font-small text-sm">
+            <a href="../index.html" class="hover:text-amber-500">Home</a>
+            <a href="./Menu.html" class="hover:text-amber-500">Menu</a>
+            <a href="./Blog.html" class="hover:text-amber-500">Blog</a>
+            <a href="#" class="hover:text-amber-500">Pages</a>
+            <a href="./About.html" class="hover:text-amber-500">About</a>
+            <a href="./Shop.html" class="hover:text-amber-500">Shop</a>
+            <a href="#" class="hover:text-amber-500">Contact</a>
+          </nav>
+          <div class="search-bag flex gap-2">
+            <span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <span><i class="fa-regular fa-user"></i></span>
+            <span><i class="fa-solid fa-bag-shopping"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- HAMBURGER/SEARCH -->
+      <div
+        class="lg:hidden md:hidden flex items-center justify-between w-[100%] px-[40px] bg-gray-900/98"
+      >
+        <button
+          id="menuBtn"
+          class="hamburger block text-3xl text-white lg:hidden focus:outline-none transition-all cursor-pointer"
+          aria-label="toggleMenu"
+          type="button"
+        >
+          &#9776;
+        </button>
+        <div class="search-bag flex gap-2 text-white">
+          <span>
+            <i
+              class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"
+            ></i>
+          </span>
+          <a href="../Components/SignUp.html"
+            ><i
+              class="fa-regular fa-user cursor-pointer hover:text-amber-500"
+            ></i
+          ></a>
+          <span
+            ><i
+              class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
+            ></i
+          ></span>
+        </div>
+      </div>
+      <div
+        class="header-text flex flex-col items-center justify-between w-[100%] gap-3 self-center text-white"
+      >
+        <h3 class="text-xl font-bold">Shop</h3>
+        <p class="text-xs font-thin hover:text-amber-500">
+          <a href="../index.html">
+            Home > <span class="text-amber-500 hover:text-white">Shop</span>
+          </a>
+        </p>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="mobileMenu"
+        class="sideNavView hidden md:hidden fixed inset-0 w-[40%] h-[100vh] z-2 bg-[#0d0d0d]/95 text-white flex flex-col items-start px-4 pt-10 gap-2"
+      >
+        <h3
+          class="absolute text-amber-500 text-xl font-bold top-2 left-3 select-none"
+        >
+          Food<span class="text-white text-lg">tuck</span>
+        </h3>
+        <!-- Close Button -->
+        <button
+          id="closeMenu"
+          class="text-xl text-center absolute top-2 right-3 cursor-pointer text-white hover:text-amber-500 focus:outline-none"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="flex flex-col items-start justify-center gap-5 mt-10">
+          <a
+            href="../index.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="./Menu.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Menu</a
+          >
+          <a
+            href="./Blog.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Blog</a
+          >
+          <a
+            href="./About.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="./Shop.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Shop</a
+          >
+          <a
+            href="./Views/Contact.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Contact</a
+          >
+          <a
+            href="../Components/SignUp.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <section class="flex items-center justify-center w-[100%] mt-15">
+      <div
+        class="shop-container flex flex-col item-start justify-between w-[80%] gap-[20px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1"
+      >
+        <!-- LEFT SIDE -->
+        <form
+          class="flex items-center lg:w-[40%] sm:w-[60%] justify-center gap-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
+        >
+          <div class="flex items-center gap-2 w-auto">
+            <label class="text-xs text-black font-semibold whitespace-nowrap">
+              Sort By:</label
+            >
+            <select
+              class="border border-gray-300 width-[300px] px-3 h-5 rounded-md text-xs text-gray-400 outline-none bg-white cursor-pointer"
+              name="me"
+              id="she"
+            >
+              <option class="" value="">Newest</option>
+              <option value="">Oldest</option>
+              <option value="">Price</option>
+              <option value="link">
+                <a href="../Components/ShopDetails.html">Details</a>
+              </option>
+            </select>
+          </div>
+          <div class="flex items-center gap-2 w-auto">
+            <label class="text-xs text-black font-semibold whitespace-nowrap">
+              Show:</label
+            >
+            <select
+              class="cursor-pointer border border-gray-300 width-[300px] px-3 h-5 rounded-md text-xs text-gray-400 outline-none bg-white"
+              name="select"
+              id="seclect"
+            >
+              <option value="">Default</option>
+              <option value="">12</option>
+              <option value="">24</option>
+              <option value="">36</option>
+            </select>
+          </div>
+        </form>
+
+        <!-- INFO AREA -->
+        <div
+          class="flex items-start justify-between text-black w-full gap-4 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 sm:flex lg:flex"
+        >
+          <!-- LEFT SIDE -->
+          <div
+            class="flex flex-col items-start justify-center gap-4 w-[100%] order-2 sm:order-2 lg:order-1"
+          >
+            <!-- IMAGES ROW 1-->
+            <div
+              class="flex items-start justify-center gap-3 w-[100%] lg:w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- CONTENTs -->
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-fresh lime.png" alt="" />
+                <h4 class="text-base font-bold">Fresh Lime</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $38.00
+                  <span class="text-gray-600 text-strike line-through">
+                    $45.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-chocolate muffin.png" alt="" />
+                <h4 class="text-base font-bold">Chocolate Muffin</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $28.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-burger.png" alt="" />
+                <h4 class="text-base font-bold">Burger</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $21.00 <span class="text-gray-600 line-through"> $45.00</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- IMAGES ROW 2-->
+            <div
+              class="flex items-start justify-center gap-3 w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- CONTENTs -->
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-country burger.png" alt="" />
+                <h4 class="text-base font-bold">Country Burger</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $45.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-drink.png" alt="" />
+                <h4 class="text-base font-bold">Drink</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $23.00 <span class="text-gray-600 line-through"> $45.00</span>
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-pizza.png" alt="" />
+                <h4 class="text-base font-bold">Pizza</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $43.00
+                </p>
+              </div>
+            </div>
+
+            <!-- IMAGES ROW 3-->
+            <div
+              class="flex items-start justify-center gap-3 w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- CONTENTs -->
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-cheese butter.png" alt="" />
+                <h4 class="text-base font-bold">Cheese Butter</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $10.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-sandwiches.png" alt="" />
+                <h4 class="text-base font-bold">Sandwiches</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $25.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-chicken chap.png" alt="" />
+                <h4 class="text-base font-bold">Chicken Chup</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $12.00
+                </p>
+              </div>
+            </div>
+
+            <!-- IMAGES ROW 4-->
+            <div
+              class="flex items-start justify-center gap-3 w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- CONTENTs -->
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-country burger.png" alt="" />
+                <h4 class="text-base font-bold">Country Burger</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $45.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-drink.png" alt="" />
+                <h4 class="text-base font-bold">Drink</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $23.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-pizza.png" alt="" />
+                <h4 class="text-base font-bold">Pizza</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $43.00
+                </p>
+              </div>
+            </div>
+
+            <!-- IMAGES ROW 5-->
+            <div
+              class="flex items-start justify-center gap-3 w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <!-- CONTENTs -->
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-cheese butter.png" alt="" />
+                <h4 class="text-base font-bold">Cheese Butter</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $10.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-sandwiches.png" alt="" />
+                <h4 class="text-base font-bold">Sandwiches</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $25.00
+                </p>
+              </div>
+              <div class="flex flex-col items-start justify-between gap-2">
+                <img src="../Assets/photos/shop-fresh lime.png" alt="" />
+                <h4 class="text-base font-bold">Fresh Lime</h4>
+                <p class="flex gap-3 text-amber-500 text-sm font-small">
+                  $38.00 <span class="text-gray-600 line-through"> $45.00</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT SIDE -->
+          <div
+            class="flex flex-col items-center justify-center border border-gray-300 rounded-lg text-black py-4 lg:w-[30%] sm:w-[100%] w-[100%] px-4 shadow-sm order-1 sm:order-1 lg:order-2"
+          >
+            <!-- CONTENTS -->
+            <div
+              class="flex flex-col gap-4 items-start justify-between w-[100%]"
+            >
+              <!-- Search -->
+              <div
+                class="flex overflow-hidden border border-0 lg:w-[100%] w-auto sm:auto bg-yellow-200 h-[30px]"
+              >
+                <input
+                  type="text"
+                  placeholder="Search Product"
+                  class="w-full bg-transparent px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 outline-none"
+                />
+                <button
+                  class="bg-amber-500 flex items-center justify-center w-10 text-white hover:bg-amber-600 transition-colors"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <!-- CATEGORY -->
+              </div>
+              <h3 class="text-sm font-semibold">Category</h3>
+              <div class="grid grid-cols-2 lg:grid-cols-1 sm:grid-cols-1 gap-2">
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Sandwiches</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Burger</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Chicken Chup</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Drink</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Pizza</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Thi</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Non Veg</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-3 cursor-pointer group select-none"
+                >
+                  <input
+                    type="checkbox"
+                    class="rounded h-4 w-4 border-gray-300 text-amber-500 focus:ring-amber-500/30 transition-olors cursor-pointer"
+                  />
+                  <span
+                    class="text-sm font-small text-gray-700 group-hover:text-amber-500 transition-colors"
+                    >Uncategorized</span
+                  >
+                </label>
+              </div>
+              <!-- IMAGE_AREA -->
+              <div
+                class="relative w-auto h-[300px] over-flow-hidden rounded shadow-md"
+              >
+                <img
+                  src="../Assets/photos/shop-right-image.png"
+                  alt="rifht side image"
+                  class="absolute insert-o h-full w-full object-cover object-center"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/30 to-black/0"
+                ></div>
+                <!-- CONTENT -->
+                <div
+                  class="relative flex h-full flex-col justify-between p-6 select-none"
+                >
+                  <div>
+                    <p class="text-base font-semibold text-white">
+                      Perfect Taste
+                    </p>
+                    <h2
+                      class="mt-1 text-2xl font-bold tracking-wide text-white leading-tight"
+                    >
+                      Classic Restaurant
+                    </h2>
+                    <p class="mt-4 text-xl font-black text-amber-400">45.00$</p>
+                  </div>
+
+                  <div>
+                    <a
+                      href="../Components/ShopDetails.html"
+                      class="inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-amber-400 group tansiction-colors duration-200"
+                    >
+                      <span>Shop Now </span>
+                      <i
+                        class="fa-regular fa-circle-right transform transition-transform group-hover:translate-x-1 duration-200"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- FILTER BY PRICE -->
+              <div class="w-[100%]">
+                <h3 class="text-lg font-bold text-gray-900 select-none tracking-tight">
+                  Filter By Price
+                </h3>
+                <div
+                  class="relative mt-4 w-full rounded-full"
+                >
+                  <div class="absolute h-2 w-full rounded-full bg-gray-200 mb-4"></div>
+                  <div id="sliderprogress" class="absolute h-2 bg-[#df8e51] rounded" style="left:0%; right: 0%;"></div>
+                  <!-- Input Container -->
+                   <div class="slider-container relative h-2 w-full">
+                    <input type="range" id="minPriceInput" min="0" max="8000" value="0" step="50">
+                    <input type="range" id="maxPriceInput" min="0" max="8000" value="8000" step="50">
+                   </div>
+                </div>
+                <!-- Detailed -->
+                <div
+                  class="mt-3 flex items-center justify-between text-xs select-none"
+                >
+                  <span class="text-gray-500">From $0 to $8000</span>
+                  <button
+                    class="font-small text-gray-500 hover:text-amber-500 tranasition-colors"
+                  >
+                    Filter
+                  </button>
+                </div>
+              </div>
+              <!-- LATEST PRODUCTS -->
+              <div class="w-[100%]">
+                <h3 class="text-lg font-bold text-gray-900 select-none">
+                  Latest Products
+                </h3>
+                <div class="mt-4 space-y-4">
+                  <!-- Product Items 1-->
+                  <div class="flex items-center gap-3">
+                    <img
+                      src="../Assets/photos/shop-pizza.png"
+                      alt="platter"
+                      class="h-16 w-16 rounded object-cover"
+                    />
+                    <div>
+                      <h4 class="text-sm font-semibold text-gray-800">Pizza</h4>
+                      <div class="flex items-center gap-0.5 mt-0.5 text-xs">
+                        <span class="text-amber-500">★</span
+                        ><span class="text-amber-500">★</span>
+                        <span class="text-gray-200">★</span
+                        ><span class="text-gray-200">★</span>
+                        <span class="text-gray-200">★</span>
+                      </div>
+                      <p class="text-sm font-medium text-gray-600 mt-0.5">
+                        $35.00
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Product Items 2-->
+                  <div class="flex items-center gap-3">
+                    <img
+                      src="../Assets/photos/shop-drink.png"
+                      alt="platter"
+                      class="h-16 w-16 rounded object-cover"
+                    />
+                    <div>
+                      <h4 class="text-sm font-semibold text-gray-800">
+                        Cupchake
+                      </h4>
+                      <div class="flex items-center gap-0.5 mt-0.5 text-xs">
+                        <span class="text-amber-500">★</span
+                        ><span class="text-amber-500">★</span>
+                        <span class="text-gray-200">★</span
+                        ><span class="text-gray-200">★</span>
+                        <span class="text-gray-200">★</span>
+                      </div>
+                      <p class="text-sm font-medium text-gray-600 mt-0.5">
+                        $20.00
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Product Items 3-->
+                  <div class="flex items-center gap-3">
+                    <img
+                      src="../Assets/photos/shop-chocolate muffin.png"
+                      alt="platter"
+                      class="h-16 w-16 rounded object-cover"
+                    />
+                    <div>
+                      <h4 class="text-sm font-semibold text-gray-800">
+                        Cookies
+                      </h4>
+                      <div class="flex items-center gap-0.5 mt-0.5 text-xs">
+                        <span class="text-amber-500">★</span
+                        ><span class="text-amber-500">★</span>
+                        <span class="text-gray-200">★</span
+                        ><span class="text-gray-200">★</span>
+                        <span class="text-gray-200">★</span>
+                      </div>
+                      <p class="text-sm font-medium text-gray-600 mt-0.5">
+                        $25.00
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Product Items 4 -->
+                  <div class="flex items-center gap-3">
+                    <img
+                      src="../Assets/photos/shop-burger.png"
+                      alt="platter"
+                      class="h-16 w-16 rounded object-cover"
+                    />
+                    <div>
+                      <h4 class="text-sm font-semibold text-gray-800">
+                        Burger
+                      </h4>
+                      <div class="flex items-center gap-0.5 mt-0.5 text-xs">
+                        <span class="text-amber-500">★</span
+                        ><span class="text-amber-500">★</span>
+                        <span class="text-gray-200">★</span
+                        ><span class="text-gray-200">★</span>
+                        <span class="text-gray-200">★</span>
+                      </div>
+                      <p class="text-sm font-medium text-gray-600 mt-0.5">
+                        $45.00
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- PRODUCT TAGS -->
+              <div class="w-[100%]">
+                <h3 class="text-lg font-bold text-gray-900 select-none">
+                  Product Tags
+                </h3>
+                <!-- LIST -->
+                <div class="mt-4 w-[100%] flex flex-wrap gap-x-5 gap-y-3">
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Services</a
+                  >
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Our Menu</a
+                  >
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Pizza</a
+                  >
+                </div>
+
+                <div class="mt-4 w-[100%] flex flex-wrap gap-x-5 gap-y-3">
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Cupcake</a
+                  >
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Burger</a
+                  >
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Cookies</a
+                  >
+                </div>
+
+                <div class="mt-4 w-[100%] flex flex-wrap gap-x-5 gap-y-3">
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Our Shop</a
+                  >
+                  <a
+                    href=""
+                    class="border-b border-gray-200 pb-0.5 text-sm text-gray-600 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                    >Tandoori Chicken</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="bg-amber-500 text-white text-center cursor-pointer px-4 py-2 text-xs font-semibold rounded-xl mt-5 hover:bg-yellow-300 hover:text-amber-600"
+            >
+              <a href="../Components/ShopDetails.html">View Details</a>
+            </button>
+          </div>
+        </div>
+        <!-- SCROLL BAR -->
+        <div class="flex items-center justify-center self-center gap-1 p-6">
+          <button
+            id="prevBtn"
+            class="w-10 h-10 flex items-center justify-center border-2 border-gray-100 text-amber-500 font-bold hover:bg-gray-50 transition-colors duration-200"
+          >
+            &laquo;
+          </button>
+
+          <div id="pageNumbers" class=" flex gap-1">
+            <button data-page="1"
+            class="page-btn hover:bg-amber-500 hover:text-white w-10 h-10 flex items-center justify-center border-2 border-gray-100 text-amber-500 font-bold transition-colors duration-200"
+          >
+            1
+          </button>
+          <button data-page="2"
+            class="page-btn hover:bg-amber-500 hover:text-white w-10 h-10 flex items-center justify-center border-2 border-gray-100 text-amber-500 font-bold transition-colors duration-200"
+          >
+            2
+          </button>
+          <button data-page="3"
+            class="page-btn hover:bg-amber-500 hover:text-white w-10 h-10 flex items-center justify-center border-2 border-gray-100 text-amber-500 font-bold transition-colors duration-200"
+          >
+            3
+          </button>
+          </div>
+
+          <button
+            id="nextBtn"
+            class="w-10 h-10 flex items-center justify-center border-2 border-gray-100 text-amber-500 font-bold hover:bg-gray-50 transition-colors duration-200"
+          >
+            &raquo;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-black flex flex-col items-center gap-6 pt-[70px] text-white mt-20"
+    >
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[80%] "
+      >
+        <div class="flex flex-col items-start gap-1">
+          <h3 class="text-sm lg:text-xl sm:text-base font-medium">
+            <span class="text-amber-500">St</span>ill You Need Our Support ?
+          </h3>
+          <p class="text-xs lg:text-base font-thin opacity-80">
+            Don't wait make a smart & logical quote here. its pretty easy.
+          </p>
+        </div>
+        <div class="flex gap-0 h-8">
+          <input
+            class="bg-amber-500 w-[70%] text-xs placeholder:text-white placeholder:opacity-60 focus:border-blue-500 focus:outline-none"
+            type="mail"
+            placeholder="Enter Your Mail"
+          />
+          <button
+            class="w-[40%] bg-white text-xs text-amber-400 cursor-pointer hover:text-amber-900"
+          >
+            Suscribe Now
+          </button>
+        </div>
+      </div>
+
+      <span class="border border-amber-500 h-[1px] w-[80%] self-center"></span>
+
+      <div
+        class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"
+      >
+        <div
+          class="flex flex-col items-center sm:items-start lg:items-start justify-between gap-4 w-[100%] sm:w-[100%] lg:w-[40%]"
+        >
+          <h3 class="font-medium text-lg w-[40%]">About Us.</h3>
+          <p class="text-xs w-[70%]">
+            Cooperate clients and travelers has been relying on Groundlink for
+            dependsb safe and professional chaffeured car service in major
+            cities accross world.
+          </p>
+          <div class="flex gap-3 lg:w-[60%]">
+            <div class="bg-amber-400 flex items-center justify-center w-15">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </div>
+            <div class="flex flex-col items-start justify-center gap-[-2px]">
+              <p class="text-sm">Opening Hours</p>
+              <p class="text-xs">Mon - Sat(8.00 - 6.00)</p>
+              <p class="text-xs">Sunday - Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] sm:m-0 lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Useful Links</p>
+          <a href="./About.html" class="text-sm font-small hover:text-amber-500"
+            >About</a
+          >
+          <a href="./Blog.html" class="text-sm font-small hover:text-amber-500"
+            >News</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Partners</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Team</a
+          >
+          <a href="./Menu.html" class="text-sm font-small hover:text-amber-500"
+            >Menu</a
+          >
+          <a
+            href="./Contact.html"
+            class="text-sm font-small hover:text-amber-500"
+            >Contacts</a
+          >
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Help?</p>
+          <a href="" class="text-sm font-small hover:text-amber-500">FAQ</a>
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Terms & conditions</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Reporting</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Documentation</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Support Policy</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500">Privacy</a>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[35%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Recent Post</p>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/chicken-cream.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">Is fastfood good for your body?</p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="lg:w-26 w-20 h-15"
+              src="../Assets/photos/burger and chips.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Change your food habit with organic food
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/fresh-bread.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Do you like fastfood for your life?
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-center gap-3 justify-between px-[90px] w-[100%] lg:w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:flex lg:items-center lg:justify-between bg-gray-400 text-white lg:px-[160px] py-3"
+      >
+        <div class="text-xs text-gray-800 self-center">
+          Copyright &copy; 2026 by CodeWithOla. All Rights Reserved.
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-pinterest"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

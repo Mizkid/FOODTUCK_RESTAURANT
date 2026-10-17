@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.header-text {
+  margin-top: 100px;
+}
+
+.extra-features {
+  background-image: url(../Assets/photos/client\ section\ bg.png);
+  width: 100%;
+  margin-top: 70px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0px 120px;
+  position: relative;
+
+  @media screen and (max-width: 760px) {
+    margin-top: 50px;
+    padding: 20px 30px;
+    gap: 40px;
+  }
+   @media screen and (min-width: 765px) and (max-width: 1033px) {
+    padding: 20px 50px;
+  }
+}
+.extra-features::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.menu-second-content {
+  margin-right: 50px;
+}
+.extra-features > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-colored-section {
+  background-image: url(../Assets/photos/About-team-bg.png);
+  margin-top: 70px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.about-colored-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(246, 169, 37, 0.8);
+}
+.about-colored-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials {
+  width: 100%;
+  position: relative;
+}
+.white-area {
+  margin-top: 80px;
+  background-image: url(../Assets/photos/Testimonial-bg.png);
+  background-position: calc(100% + 100px) calc(100% + 80px);
+  background-size: 350px;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  overflow: visible;
+}
+.white-area h4,
+.white-area span {
+  margin-top: -10px;
+}
+.food-menu {
+  background-image: url(../Assets/photos/About-FoodMenu-Bg.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+footer input,
+footer button {
+  padding: 0px 10px;
+}
+.colored-area {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+}
+/* SHOP FILTER BY PRICE */
+.slider-container input[type="range"] {
+position: absolute;
+width:100%;
+height:6px;
+top
+}

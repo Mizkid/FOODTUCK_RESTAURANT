@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./ViewsStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>About Us</title>
+  </head>
+  <body class="w-[100%] h-[100vh]">
+    <!-- HEADER -->
+    <header
+      class="views-header flex flex-col w-[100%] h-[35vh] lg:h-[50%] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+    >
+      <div
+        class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
+      >
+        <div class="flex items-center justify-between w-[100%]">
+          <h3 class="text-amber-400 text-xl font-medium">
+            Food<span class="text-white">tuck</span>
+          </h3>
+          <nav class="flex gap-5 font-small text-sm">
+            <a href="../index.html" class="hover:text-amber-500">Home</a>
+            <a href="./Menu.html" class="hover:text-amber-500">Menu</a>
+            <a href="./Blog.html" class="hover:text-amber-500">Blog</a>
+            <a href="../Components/Error.html" class="hover:text-amber-500"
+              >Pages</a
+            >
+            <a href="./About.html" class="hover:text-amber-500">About</a>
+            <a href="./Shop.html" class="hover:text-amber-500">Shop</a>
+            <a href="#" class="hover:text-amber-500">Contact</a>
+          </nav>
+          <div class="search-bag flex gap-2">
+            <span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <span><i class="fa-regular fa-user"></i></span>
+            <span><i class="fa-solid fa-bag-shopping"></i></span>
+          </div>
+        </div>
+      </div>
+      <!-- HAMBURGER/SEARCH -->
+      <div
+        class="lg:hidden md:hidden flex items-center justify-between w-[100%] px-[40px] bg-gray-900/98"
+      >
+        <button
+          id="menuBtn"
+          class="hamburger block text-3xl text-white lg:hidden focus:outline-none transition-all cursor-pointer"
+          aria-label="toggleMenu"
+          type="button"
+        >
+          &#9776;
+        </button>
+        <div class="search-bag flex gap-2 text-white">
+          <span>
+            <i
+              class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"
+            ></i>
+          </span>
+          <a href="../Components/SignUp.html"
+            ><i
+              class="fa-regular fa-user cursor-pointer hover:text-amber-500"
+            ></i
+          ></a>
+          <span
+            ><i
+              class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
+            ></i
+          ></span>
+        </div>
+      </div>
+      <div
+        class="header-text flex flex-col items-center justify-between w-[100%] gap-3 self-center text-white"
+      >
+        <h3 class="text-xl font-bold">About Us</h3>
+        <p class="text-xs font-thin hover:text-amber-500">
+          <a href="../index.html">
+            Home > <span class="text-amber-500 hover:text-white">About</span>
+          </a>
+        </p>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="mobileMenu"
+        class="sideNavView hidden md:hidden fixed inset-0 w-[40%] h-[100vh] z-2 bg-[#0d0d0d]/95 text-white flex flex-col items-start px-4 pt-10 gap-2"
+      >
+        <h3
+          class="absolute text-amber-500 text-xl font-bold top-2 left-3 select-none"
+        >
+          Food<span class="text-white text-lg">tuck</span>
+        </h3>
+        <!-- Close Button -->
+        <button
+          id="closeMenu"
+          class="text-xl text-center absolute top-2 right-3 cursor-pointer text-white hover:text-amber-500 focus:outline-none"
+          type="button"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="flex flex-col items-start justify-center gap-5 mt-10">
+          <a
+            href="../index.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="./Menu.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Menu</a
+          >
+          <a
+            href="./Blog.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Blog</a
+          >
+          <a
+            href="./About.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="./Shop.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Shop</a
+          >
+          <a
+            href="./Views/Contact.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Contact</a
+          >
+          <a
+            href="../Components/SignUp.html"
+            class="mobile-link text-sm text-white font-semibold hover:text-amber-500 transition-colors"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="w-[100%] lg:px-[120px] px-[40px]">
+      <!-- SECTION 1 -->
+      <section
+        class="flex items-center justify-center gap-10 lg:gap-20 mt-20 sm:w-[80%] lg:w-[100%] md:w-[100%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
+      >
+        <!-- IMAGES AREA -->
+        <div
+          class="flex gap-2 lg:w-[100%] md:w-[100%] w-[100%] self-center order-2 lg:order-1 md:order-1"
+        >
+          <img
+            class="w-[50%] h-100"
+            src="../Assets/photos/About-img-1.png"
+            alt="image-1"
+          />
+          <div class="flex flex-col gap-2 mt-10">
+            <img src="../Assets/photos/About-img-2.png" alt="" />
+            <img
+              class="w-auto h-65"
+              src="../Assets/photos/About-img-3.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- TEXT AREA -->
+        <div
+          class="flex flex-col w-[100%] lg:w-[100%] items-start justify-center gap-3 order-1 lg:order-2"
+        >
+          <p class="text-xs text-amber-500 font-small">About Us _____</p>
+          <h3 class="text-3xl text-gray-900 font-bold w-[90%]">
+            Food is an important part of a Balance Diet
+          </h3>
+          <p class="text-xs text-gray-500 font-small w-[85%] mt-3">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+            Iure, facere pariatur, molestiae in ipsum vitae, porro ullam
+            doloribus mollitia dolorum voluptates sint beatae?
+          </p>
+          <div class="flex gap-2 w-[75%]">
+            <div
+              class="flex items-center justify-center bg-amber-500 text-xs text-white font-semibold h-[40px] w-[50%] rounded hover:bg-yellow-200 hover:text-amber-500 cursor-pointer select-none"
+            >
+              Show more
+            </div>
+
+            <a
+              href=""
+              class="flex items-center justify-center gap-2 select-none"
+            >
+              <i
+                class="fa-solid fa-circle-play text-4xl text-amber-500 font-semibold hover:text-yellow-300 cursor-pointer select-none"
+              ></i>
+              <span
+                class="text-xs text-gray-900 font-semibold hover:text-yellow-300 cursor-pointer"
+              >
+                Watch video</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="flex flex-col items-center justify-center w-[100%] mt-15">
+        <h3 class="text-3xl text-gray-900 font-bold self-center">
+          Why Choose Us
+        </h3>
+        <p
+          class="text-xs text-gray-600 font-small lg:w-[40%] md:w-[50%] sm:w-[70%] w-[80%] text-center mt-1"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+        </p>
+        <img
+          class="w-full mt-10"
+          src="../Assets/photos/About-sec-2-img.png"
+          alt=""
+        />
+        <!-- LOGOS SECTION -->
+        <div
+          class="flex items-start md:items-center justify-between w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:flex mt-10"
+        >
+          <!-- CONTENT 1 -->
+          <div class="flex flex-col items-center justify-center w-[100%]">
+            <img
+              class="w-[15%]"
+              src="../Assets/photos/About-student.svg"
+              alt=""
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-2">Best Chef</h3>
+            <p
+              class="text-xs text-gray-500 font-small w-[40%] text-center mt-1 w-full"
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+            </p>
+          </div>
+          <!-- CONTENT 2 -->
+          <div class="flex flex-col items-center justify-center w-[100%]">
+            <img
+              class="w-[15%]"
+              src="../Assets/logos/About-Coffee.png"
+              alt=""
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-2">
+              120 item food
+            </h3>
+            <p
+              class="text-xs text-gray-500 font-small w-[40%] text-center mt-1 w-full"
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+            </p>
+          </div>
+          <!-- CONTENT 3 -->
+          <div class="flex flex-col items-center justify-center w-[100%]">
+            <img
+              class="w-[15%]"
+              src="../Assets/logos/About-Person.png"
+              alt=""
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-2">
+              Clean Environment
+            </h3>
+            <p
+              class="text-xs text-gray-500 font-small w-[40%] text-center mt-1 w-full"
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- COLORED SECTION -->
+    <div
+      class="about-colored-section w-[100%] lg:px-[120px] px-[30px] lg:h-[270px] h-auto"
+    >
+      <!-- CONTENTS -->
+      <div
+        class="flex flex-col items-center justify-center text-white w-[100%]"
+      >
+        <h3 class="text-xl font-bold mt-15">Team Member</h3>
+        <p
+          class="text-xs font-small text-center mt-1 lg:w-[40%] md:w-[60%] w-[80%]"
+        >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          reiciendis tenetur cupiditate consequatur consequuntur laboriosam.
+        </p>
+        <!-- IMAGES CARD -->
+        <div
+          class="flex gap-3 mt-5 w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:flex lg:flex-row"
+        >
+          <!-- CARD 1 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white lg:w-[100%] sm:w-[100%] md:w-[100%] w-[100%] pb-3"
+          >
+            <img
+              class="w-full h-60"
+              src="../Assets/photos/About-team.png"
+              alt="TEAM MEMBER"
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-1">Mark Henry</h3>
+            <p class="text-xs text-gray-500 font-small">Owner</p>
+          </div>
+          <!-- CARD 2 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white lg:w-[100%] sm:w-[100%] md:w-[100%] w-[100%] pb-3"
+          >
+            <img
+              class="w-full h-60"
+              src="../Assets/photos/About-team.png"
+              alt="TEAM MEMBER"
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-1">
+              Lucky Helen
+            </h3>
+            <p class="text-xs text-gray-500 font-small">Chef</p>
+          </div>
+          <!-- CARD 3 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white lg:w-[100%] sm:w-[100%] md:w-[100%] w-[100%] pb-3"
+          >
+            <img
+              class="w-full h-60"
+              src="../Assets/photos/About-team.png"
+              alt="TEAM MEMBER"
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-1">Moon Henry</h3>
+            <p class="text-xs text-gray-500 font-small">Founder</p>
+          </div>
+          <!-- CARD 4 -->
+          <div
+            class="flex flex-col items-center justify-center bg-white lg:w-[100%] sm:w-[100%]md:w-[100%] w-[100%] pb-3"
+          >
+            <img
+              class="w-full h-60"
+              src="../Assets/photos/About-team.png"
+              alt="TEAM MEMBER"
+            />
+            <h3 class="text-lg text-gray-900 font-semibold mt-1">Tom Monrow</h3>
+            <p class="text-xs text-gray-500 font-small">Specialist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TESTIMONIALS -->
+    <div
+      class="testimonials flex flex-col items-center mt-50 overflow-hidden px-[40px] lg:px-[120px]"
+    >
+      <p class="parisienne text-sm font-thin text-amber-500 w-70 self-start">
+        Testimonials
+      </p>
+      <h3 class="text-2xl text-gray-900 font-bold w-100 self-start">
+        What our client are saying
+      </h3>
+      <div
+        class="white-area w-[100%] md:w-[70%] lg:w-[60%] bg-white border border-gray-100 shadow-xl flex flex-col text-black items-center justify-between gap-5 px-3"
+      >
+        <img
+          class="rounded-large w-20 h-20 mt-[-40px]"
+          src="../Assets/photos/Ellipse 6-testi.png"
+          alt=""
+        />
+        <h2 class="text-amber-400 text-xl font-thin">99</h2>
+        <p class="text-sm font-normal text-center w-full">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
+          voluptates doloribus. Repellat ab suscipit recusandae maiores magnam?
+          Blanditiis hic corrupti eaque vero voluptatum nemo neque provident aut
+          tempora, aliquid asperiores!
+        </p>
+        <img class="w-30" src="../Assets/photos/star.png" alt="" />
+        <h4 class="font-bold text-xl">Alamin Hassan</h4>
+        <span class="text-sm font-semibold opacity-70">Food Specialist</span>
+      </div>
+      <div class="carousel-indicators flex items-center justify center gap-3">
+        <div class="flex gap-1">
+          <span class="size-3 bg-amber-500 rounded-full"></span>
+          <span class="size-3 bg-yellow-200 rounded-full"></span>
+        </div>
+        <div class="flex gap-1">
+          <span class="size-3 bg-yellow-200 rounded-full"></span>
+          <span class="size-3 bg-yellow-200 rounded-full"></span>
+        </div>
+      </div>
+    </div>
+    <!-- FOOD MENU -->
+    <section
+      class="flex flex-col items-center justify-center w-[100%] lg:px-[120px] px-[40px] mt-20"
+    >
+      <!-- contents -->
+      <div
+        class="food-menu flex flex-col items-center text-center h-[100px] pt-2"
+      >
+        <h3 class="text-2xl text-gray-900 font-bold">Our Food Menu</h3>
+        <p
+          class="text-xs text-gray-600 font-thick mt-1 w-[80%] md:w-[65%] lg:w-[50%]"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo hic
+          eaque perferendis, omnis deserunt consequuntur vel.
+        </p>
+      </div>
+      <!-- LINKS -->
+      <div
+        class="flex items-center justify-between gap-4 w-[100%] md:w-[75%] lg:w-[50%] mt-4"
+      >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Breakfast</a
+        >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Lunch</a
+        >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Dinner</a
+        >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Dessert</a
+        >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Drinks</a
+        >
+        <a
+          class="text-gray-500 text-xs font-small hover:text-amber-500 hover:border-b-1 hover:border-amber-500 pb-3"
+          href=""
+          >Snacks</a
+        >
+      </div>
+      <span class="bg-gray-100 w-[100%] h-[0.5px]"></span>
+      <!-- INFOS -->
+      <div
+        class="flex items-center justify-between gap-4 mt-8 w-[100%] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 lg:flex"
+      >
+        <!-- LEFT PART -->
+        <div class="flex flex-col items-start justify-center w-[100%]">
+          <div class="flex items-start justify-between w-[100%] mt-">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- second -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- third -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- fourth -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+        </div>
+        <!-- RIGHT PART -->
+        <div class="flex flex-col items-start justify-center w-[100%]">
+          <div class="flex items-start justify-between w-[100%]">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- second -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- third -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+          <!-- fourth -->
+          <div class="flex items-start justify-between w-[100%] mt-3">
+            <div class="flex flex-col items-start justify-between gap-[5px]">
+              <h3
+                class="text-lg text-gray-900 font-medium hover:text-amber-500"
+              >
+                Alder Grilled Chinook Salmon
+              </h3>
+              <p class="text-xs font-thin">
+                Toasted French bread topped with romano, chedder
+              </p>
+              <p class="text-xs font-thin opacity-60">560 CAL</p>
+            </div>
+            <span class="text-amber-500 text-lg font-bold">32$</span>
+          </div>
+          <span
+            class="border border-gray-200 border-dotted h-[0.5px] w-[100%] mt-3"
+          ></span>
+        </div>
+      </div>
+      <button
+        class="border border-amber-500 bg-white text-amber-500 text-xs font-small px-4 py-2 mt-8 hover:bg-amber-500 hover:text-white"
+      >
+        <a href="./Menu.html">View menu</a>
+      </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-black flex flex-col items-center gap-6 pt-[70px] text-white mt-20"
+    >
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[80%]"
+      >
+        <div class="flex flex-col items-start gap-1">
+          <h3 class="text-sm lg:text-xl sm:text-base font-medium">
+            <span class="text-amber-500">St</span>ill You Need Our Support ?
+          </h3>
+          <p class="text-xs lg:text-base font-thin opacity-80">
+            Don't wait make a smart & logical quote here. its pretty easy.
+          </p>
+        </div>
+        <div class="flex gap-0 h-8">
+          <input
+            class="bg-amber-500 w-[70%] text-xs placeholder:text-white placeholder:opacity-60 focus:border-blue-500 focus:outline-none"
+            type="mail"
+            placeholder="Enter Your Mail"
+          />
+          <button
+            class="w-[40%] bg-white text-xs text-amber-400 cursor-pointer hover:text-amber-900"
+          >
+            Suscribe Now
+          </button>
+        </div>
+      </div>
+
+      <span class="border border-amber-500 h-[1px] w-[80%] self-center"></span>
+
+      <div
+        class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"
+      >
+        <div
+          class="flex flex-col items-center sm:items-start lg:items-start justify-between gap-4 w-[100%] sm:w-[100%] lg:w-[40%]"
+        >
+          <h3 class="font-medium text-lg w-[40%]">About Us.</h3>
+          <p class="text-xs w-[70%]">
+            Cooperate clients and travelers has been relying on Groundlink for
+            dependsb safe and professional chaffeured car service in major
+            cities accross world.
+          </p>
+          <div class="flex gap-3 lg:w-[60%]">
+            <div class="bg-amber-400 flex items-center justify-center w-15">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </div>
+            <div class="flex flex-col items-start justify-center gap-[-2px]">
+              <p class="text-sm">Opening Hours</p>
+              <p class="text-xs">Mon - Sat(8.00 - 6.00)</p>
+              <p class="text-xs">Sunday - Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] sm:m-0 lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Useful Links</p>
+          <a href="./About.html" class="text-sm font-small hover:text-amber-500"
+            >About</a
+          >
+          <a href="./Blog.html" class="text-sm font-small hover:text-amber-500"
+            >News</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Partners</a
+          >
+          <a href="./Chef.html" class="text-sm font-small hover:text-amber-500"
+            >Team</a
+          >
+          <a href="./Menu.html" class="text-sm font-small hover:text-amber-500"
+            >Menu</a
+          >
+          <a
+            href="./Contact.html"
+            class="text-sm font-small hover:text-amber-500"
+            >Contacts</a
+          >
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start gap-1 lg:gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Help?</p>
+          <a href="" class="text-sm font-small hover:text-amber-500">FAQ</a>
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Terms & conditions</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Reporting</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Documentation</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500"
+            >Support Policy</a
+          >
+          <a href="" class="text-sm font-small hover:text-amber-500">Privacy</a>
+        </div>
+
+        <div
+          class="w-[100%] sm:w-[100%] lg:w-[35%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start justify-between gap-4"
+        >
+          <p class="text-xl lg:text-sm font-medium">Recent Post</p>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/chicken-cream.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">Is fastfood good for your body?</p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="lg:w-26 w-20 h-15"
+              src="../Assets/photos/burger and chips.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Change your food habit with organic food
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <img
+              class="w-20 h-15"
+              src="../Assets/photos/fresh-bread.png"
+              alt=""
+            />
+            <div class="flex flex-col items-start justify-center gap-[2px]">
+              <p class="text-sm font-small">
+                Do you like fastfood for your life?
+              </p>
+              <p class="text-xs opacity-50">October 07 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-center gap-3 justify-between px-[90px] w-[100%] lg:w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:flex lg:items-center lg:justify-between bg-gray-400 text-white lg:px-[160px] py-3"
+      >
+        <div class="text-xs text-gray-800 self-center">
+          Copyright &copy; 2026 by CodeWithOla. All Rights Reserved.
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a
+            href=""
+            class="bg-white border-0 h-5 w-5 rounded hover:text-amber-400 p-3 text-sm text-black flex items-center justify-center"
+          >
+            <i class="fa-brands fa-pinterest"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
