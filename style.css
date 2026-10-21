@@ -6,8 +6,8 @@
 .mullish {
   font-family: "Sofia", cursive;
   font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  font-weight: 300;
+  font-style: italic;
 }
 
 body {
@@ -60,7 +60,6 @@ header > * {
   @media screen and (max-width: 760px) {
     position: absolute;
     padding: 60px 20px;
-    height:100vh;
     background: rgba(181, 136, 29, 0.824);
     z-index: 10;
     backdrop-filter: blur(15px);
@@ -80,7 +79,7 @@ header > * {
   margin-top: 60px;
 
   @media screen and (max-width: 760px) {
-    margin-top: 0px;
+    margin: 0px;
   }
 }
 .search {
@@ -266,6 +265,7 @@ header > * {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  
    @media screen and (min-width: 765px) and (max-width: 1033px) {
     padding: 0px 50px;
   }
@@ -290,11 +290,11 @@ footer {
   padding-right: 0px 120px;
   margin-top: 70px;
   background-image: url(./Assets/photos/footer-image.png);
-  background-position: calc(100% + 30px) calc(100% + 20px);
+  background-position: calc(100% + 80px) calc(100% + 50px);
   background-size: 200px;
   background-repeat: no-repeat;
-  overflow: visible;
   position: relative;
+  z-index: 99;
 }
 footer {
   padding-top: 50px;
@@ -306,6 +306,7 @@ footer button {
 .colored-area {
   padding: 10px 135px;
   width: 100%;
+  z-index: 2;
 
   @media screen and (max-width: 760px) {
     padding: 10px 0px 10px 30px;

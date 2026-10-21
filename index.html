@@ -33,7 +33,7 @@
         class="relative z-10 lg:flex nav-menu flex justify-between items-center w-full"
       >
         <div
-          class="hidden md:flex lg:flex md:flex font-semibold text-[14px] gap-5 md:gap-2 items-center"
+          class="hidden lg:flex md:flex font-semibold text-[16px] gap-5 md:gap-2 items-center"
         >
           <a href="./index.html" class="hover:text-amber-500">Home</a>
           <a href="./Views/Menu.html" class="hover:text-amber-500">Menu</a>
@@ -46,9 +46,9 @@
           <a href="./Views/" class="hover:text-amber-500">Contact</a>
         </div>
         <!-- HAMBURGER -->
-         <button
+        <button
           id="menuBtn"
-          class="hamburger block text-3xl text-white lg:hidden focus:outline-none transition-all cursor-pointer"
+          class="hamburger block text-3xl text-white lg:hidden md:hidden focus:outline-none transition-all cursor-pointer"
           aria-label="toggleMenu"
           type="button"
         >
@@ -63,7 +63,9 @@
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
           </div>
-          <span class="pt-5"><i class="fa-solid fa-bag-shopping"></i></span>
+          <a href="./Components/ShoppingCart.html" class="pt-5"
+            ><i class="fa-solid fa-bag-shopping hover:text-amber-500"></i
+          ></a>
         </div>
       </nav>
 
@@ -157,17 +159,19 @@
           </div>
           <!-- TEXT -->
           <div class="text-area flex flex-col items-start w-full">
-            <p class="mullish text-amber-300 w-50 font-serif text-xl italic">
+            <p class="mullish text-amber-300 w-50 text-xl">
               Its Quick & Amusing!
             </p>
             <h2 class="text-4xl w-80 font-medium">
               <span class="text-amber-400">Th</span>e Art of speed food Quality
             </h2>
-            <p class="text-xs font-20 w-70 mt-6 opacity-70">
+            <p class="text-xs font-small w-70 mt-6 opacity-70">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius
               sed pharetra dictum neque massa congue
             </p>
-            <button class="bg-amber-500 rounded-xl w-25 text-xs">
+            <button
+              class="bg-amber-500 rounded-xl w-25 text-xs font-semibold hover:bg-yellow-300 hover:text-amber-600 transition-colors"
+            >
               <a href="./Views/Menu.html"> See Menu</a>
             </button>
           </div>
@@ -175,7 +179,7 @@
         <img
           src="./Assets/photos/Header-Image.png"
           alt="header-image"
-          class="w-[80%] md:w-[50%] lg:w-[50%]"
+          class="w-[100%] md:w-[50%] lg:w-[50%]"
         />
       </div>
     </header>
@@ -187,11 +191,11 @@
       <div
         class="sec-1-content flex flex-col items-start text-white-500 w-[100%] md:w-[100%] gap-2"
       >
-        <p class="text-amber-600 opacity-80">About us</p>
+        <p class="mullish text-amber-500 text-lg font-semibold">About us</p>
         <h3 class="text-3xl w-full lg:w-[80%] font-medium">
           <span class="text-amber-500">We</span> Create the best foody product
         </h3>
-        <p class="text-sm font-thin opacity-60 lg:w-[90%]">
+        <p class="text-sm font-thin lg:w-[90%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
           illo repellat temporibus animi sapiente ipsam nihil, et nobis
           assumenda saepe ipsa facere culpa? Pariatur voluptates minus quisquam
@@ -209,7 +213,7 @@
           <i class="fa-solid fa-check"></i> Lorem ipsum dolor sit amet,
           consectetur adipiscing elit
         </p>
-        <button class="bg-amber-500 rounded-xl w-25 text-xs">Read More</button>
+        <a href="./Views/About.html" class="bg-amber-500 rounded-xl h-7 w-25 text-xs text-center flex items-center justify-center mt-3 font-semibold hover:bg-yellow-300 hover:text-amber-600 transition-colors">Read More</a>
       </div>
       <div class="image-area flex flex-col w-full gap-3">
         <img class="image-1" src="./Assets/photos/sec-1-one.png" alt="eggs" />
@@ -230,7 +234,9 @@
 
     <!-- SECTION-2 -->
     <section class="section-2 flex flex-col items-start justify-center gap-2">
-      <p class="text-amber-400 text-center self-center">Food Category</p>
+      <p class="mullish text-lg text-amber-500 text-center self-center">
+        Food Category
+      </p>
       <h3 class="text-3xl font-medium text-center self-center">
         <span class="text-amber-500 w-auto">Ch</span>oose Food Item
       </h3>
@@ -290,7 +296,7 @@
       <div
         class="sec-3-text gap-5 flex flex-col items-start justify-center w-[100%] md:w-[100%] order-1 lg:order-2"
       >
-        <p class="text-amber-500">Why Choose us</p>
+        <p class="mullish text-lg text-amber-500">Why Choose us</p>
         <h3 class="text-3xl font-medium">
           <span class="text-amber-500">Ex</span>tra ordinary taste And
           Experienced
@@ -328,10 +334,10 @@
           </div>
         </div>
         <div
-          class="experienced text-black flex items-center justify-center gap-7 bg-white border-0 border-amber-500 border-l-5 rounded-sm w-55"
+          class="experienced text-black flex items-center justify-center gap-7 bg-white border-amber-500 border-l-5 rounded-sm w-55 h-15 rounded-lg"
         >
-          <h3 class="text-amber-500 text-3xl font-bold">30+</h3>
-          <p class="leading-none">
+          <h3 class="text-amber-500 text-4xl font-extrabold">30+</h3>
+          <p class="leading-5">
             Years of <br />
             <span class="font-bold">Experienced</span>
           </p>
@@ -370,9 +376,11 @@
     </section>
 
     <!-- SECTION 5 -->
-    <section class="section-5 flex flex-col items-start justify-between gap-5">
-      <p class="text-xl font-thin text-amber-500 self-center">Choose & pick</p>
-      <h3 class="text-white text-2xl font-bold self-center">
+    <section class="section-5 flex flex-col items-start justify-between gap-3">
+      <p class="mullish text-lg font-thin text-amber-500 self-center">
+        Choose & pick
+      </p>
+      <h3 class="text-white text-xl font-bold self-center">
         <span class="text-amber-500">Fr</span>om Our Menu
       </h3>
       <div
@@ -427,7 +435,7 @@
         </div>
         <!-- ITEMS AREA -->
         <div
-          class="flex flex-row items-start justify-between grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-{100%}"
+          class="flex flex-row items-start justify-between gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-[100%]"
         >
           <div class="flex flex-col justify-between gap-3">
             <div class="flex items-center justify-center gap-2">
@@ -568,9 +576,9 @@
 
     <!-- CHEF AREA -->
     <section class="chef flex flex-col items-start justify-between gap-3">
-      <p class="text-amber-500 text-sm font-thin self-center">Chefs</p>
-      <h3 class="text-white text-2xl font-bold self-center">
-        <span class="text-amber-400">Me</span>et Our Chef
+      <p class="mullish text-amber-500 text-xl font-thin self-center">Chefs</p>
+      <h3 class="text-white text-xl font-bold self-center">
+        <span class="text-amber-500">Me</span>et Our Chef
       </h3>
       <div
         class="chefs-images flex flex-row gap-12 md:gap-5 w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 mb-4"
@@ -607,7 +615,7 @@
     <!-- TESTIMONIALS -->
     <div class="testimonials flex flex-col items-center">
       <p
-        class="parisienne text-sm font-thin text-amber-500 w-70 lg:self-start md:self-start self-center text-center"
+        class="mullish text-xl font-thin text-amber-500 w-55 lg:self-start md:self-start self-center text-center"
       >
         Testimonials
       </p>
@@ -651,7 +659,7 @@
     <section
       class="section-6 gap-5 flex flex-col lg:items-end items-center md:items-end justify-center text-right text-white px-[40px]"
     >
-      <p class="text-amber-400 text-xl font-thin w-70">
+      <p class="mullish text-amber-400 text-xl font-thin w-80">
         Restaurant Ative Process
       </p>
       <h3 class="text-2xl font-medium w-80 leading-none">
@@ -681,7 +689,7 @@
 
     <!-- BLOG POST -->
     <section class="blog flex flex-col items-center justify-center gap-5">
-      <p class="text-base text-amber-500 font-thin">Blog Post</p>
+      <p class="mullish text-base text-amber-500 font-thin">Blog Post</p>
       <h3 class="text-xl font-medium">
         <span class="text-amber-500">La</span>test News & Blog
       </h3>
@@ -721,15 +729,14 @@
           class="overflow-hidden text-white bg-black border flex flex-col items-center"
         >
           <img
-            src="./Assets/photos/Burger.png"
+            src="./Assets/photos/shop-pizza.png"
             alt="burger"
             class="h-60 w-full object-cover"
           />
           <div class="card-text flex flex-col gap-4 w-[80%]">
             <p class="text-sm font-thin text-amber-400">10 febuary 2022</p>
             <h2 class="text-[14px] font-medium leading-none">
-              This is one our burger, which comes with more cream and full
-              vegies
+              This is one our pizza, which comes with more sauce and full vegies
             </h2>
             <div class="flex items-center justify-between">
               <a
@@ -750,15 +757,15 @@
           class="overflow-hidden text-white bg-black border flex flex-col items-center"
         >
           <img
-            src="./Assets/photos/Burger.png"
+            src="./Assets/photos/lettuce wrap.png"
             alt="burger"
             class="h-60 w-full object-cover"
           />
           <div class="card-text flex flex-col gap-4 w-[80%]">
             <p class="text-sm font-thin text-amber-400">10 febuary 2022</p>
             <h2 class="text-[14px] font-medium leading-none">
-              This is one our burger, which comes with more cream and full
-              vegies
+              This is a lettuce wrap, which comes with sauce, veggies and full
+              cream
             </h2>
             <div class="flex items-center justify-between">
               <a
@@ -858,20 +865,20 @@
           class="w-[100%] sm:w-[100%] lg:w-[25%] mt-[20px] lg:m-0 flex flex-col items-center sm:items-start lg:items-start gap-1 lg:gap-4"
         >
           <p class="text-xl lg:text-sm font-medium">Help?</p>
-          <a href="" class="text-sm font-small hover:text-amber-500">FAQ</a>
-          <a href="" class="text-sm font-small hover:text-amber-500"
+          <a href="./Views/FAQ.html" class="text-sm font-small hover:text-amber-500">FAQ</a>
+          <a href="./Views/Terms.html" class="text-sm font-small hover:text-amber-500"
             >Terms & conditions</a
           >
-          <a href="" class="text-sm font-small hover:text-amber-500"
+          <a href="./Views/Reporting.html" class="text-sm font-small hover:text-amber-500"
             >Reporting</a
           >
-          <a href="" class="text-sm font-small hover:text-amber-500"
+          <a href="./Views/Documentation.html" class="text-sm font-small hover:text-amber-500"
             >Documentation</a
           >
-          <a href="" class="text-sm font-small hover:text-amber-500"
+          <a href="./Views/SupportPolicy.html" class="text-sm font-small hover:text-amber-500"
             >Support Policy</a
           >
-          <a href="" class="text-sm font-small hover:text-amber-500">Privacy</a>
+          <a href="./Views/Privacy.html" class="text-sm font-small hover:text-amber-500">Privacy</a>
         </div>
 
         <div
@@ -921,7 +928,7 @@
         </div>
       </div>
 
-      <div class="colored-area bg-amber-500">
+      <div class="colored-area bg-amber-500/75">
         <div
           class="w-[100%] flex items-center justify-between grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:flex gap-5"
         >

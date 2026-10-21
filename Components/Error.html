@@ -17,7 +17,7 @@
   <body>
     <!-- HEADER -->
     <header
-      class="views-header flex flex-col w-[100%] h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+      class="views-header flex flex-col w-[100%] h-[35vh] lg:h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
     >
       <div
         class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
@@ -28,19 +28,29 @@
           </h3>
           <nav class="flex gap-5 font-small text-sm">
             <a href="../index.html" class="hover:text-amber-500">Home</a>
-            <a href="./Menu.html" class="hover:text-amber-500">Menu</a>
-            <a href="./Blog.html" class="hover:text-amber-500">Blog</a>
+            <a href="../Views/Menu.html" class="hover:text-amber-500">Menu</a>
+            <a href="../Views/Blog.html" class="hover:text-amber-500">Blog</a>
             <a href="#" class="hover:text-amber-500">Pages</a>
-            <a href="./About.html" class="hover:text-amber-500">About</a>
-            <a href="./Shop.html" class="hover:text-amber-500">Shop</a>
-            <a href="#" class="hover:text-amber-500">Contact</a>
+            <a href="../Views/About.html" class="hover:text-amber-500">About</a>
+            <a href="../Views/Shop.html" class="hover:text-amber-500">Shop</a>
+            <a href="../Views/" class="hover:text-amber-500">Contact</a>
           </nav>
           <div class="search-bag flex gap-2">
             <span>
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i
+                class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"
+              ></i>
             </span>
-            <a href="../Components/SignUp.html"><i class="fa-regular fa-user"></i></a>
-            <span><i class="fa-solid fa-bag-shopping"></i></span>
+            <a href="../Components/SignUp.html"
+              ><i
+                class="fa-regular fa-user cursor-pointer hover:text-amber-500"
+              ></i
+            ></a>
+            <a href="./ShoppingCart.html"
+              ><i
+                class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
+              ></i
+            ></a>
           </div>
         </div>
       </div>
@@ -67,11 +77,11 @@
               class="fa-regular fa-user cursor-pointer hover:text-amber-500"
             ></i
           ></a>
-          <span
+          <a href="./ShoppingCart.html"
             ><i
               class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
             ></i
-          ></span>
+          ></a>
         </div>
       </div>
       <div
@@ -155,7 +165,9 @@
         Page cannot be found! we'll have it figured out in no time. Meanwhile,
         check out these fresh ideas:
       </p>
-      <button class="bg-amber-500 text-white text-xs text-center font-semibold px-6 py-2 rounded-lg mt-5">
+      <button
+        class="bg-amber-500 text-white text-xs text-center font-semibold px-6 py-2 rounded-lg mt-5"
+      >
         <a href="../index.html">Go to home</a>
       </button>
     </div>
@@ -165,7 +177,7 @@
       class="bg-black flex flex-col items-center gap-6 text-white mt-20 pt-[70px]"
     >
       <div
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[70%] sm:w-[70%] lg:w-[70%]"
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[80%]"
       >
         <div class="flex flex-col items-start gap-1">
           <h3 class="text-sm lg:text-xl sm:text-base font-medium">
@@ -187,7 +199,7 @@
         </div>
       </div>
 
-      <span class="border border-amber-500 h-[1px] w-[70%] self-center"></span>
+      <span class="border border-amber-500 h-[1px] w-[80%] self-center"></span>
 
       <div
         class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"

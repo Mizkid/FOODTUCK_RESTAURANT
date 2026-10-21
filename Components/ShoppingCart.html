@@ -17,7 +17,7 @@
   <body>
     <!-- HEADER -->
     <header
-      class="views-header flex flex-col w-[100%] h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+      class="views-header flex flex-col w-[100%] h-[35vh] lg:h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
     >
       <div
         class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
@@ -30,17 +30,23 @@
             <a href="../index.html" class="hover:text-amber-500">Home</a>
             <a href="../Views/Menu.html" class="hover:text-amber-500">Menu</a>
             <a href="../Views/Blog.html" class="hover:text-amber-500">Blog</a>
-            <a href="./Error.html" class="hover:text-amber-500">Pages</a>
+            <a href="../Views/Pages.html" class="hover:text-amber-500">Pages</a>
             <a href="../Views/About.html" class="hover:text-amber-500">About</a>
             <a href="../Views/Shop.html" class="hover:text-amber-500">Shop</a>
-            <a href="#" class="hover:text-amber-500">Contact</a>
+            <a href="../Views/Contact.html" class="hover:text-amber-500"
+              >Contact</a
+            >
           </nav>
           <div class="search-bag flex gap-2">
             <span>
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-magnifying-glass hover:text-amber-500"></i>
             </span>
-            <span><i class="fa-regular fa-user"></i></span>
-            <span><i class="fa-solid fa-bag-shopping"></i></span>
+            <a href="./SignUp.html"
+              ><i class="fa-regular fa-user hover:text-amber-500"></i
+            ></a>
+            <a href="./ShoppingCart.html"
+              ><i class="fa-solid fa-bag-shopping hover:text-amber-500"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -58,19 +64,30 @@
         </button>
         <div class="search-bag flex gap-2 text-white">
           <span>
-            <i class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"></i>
+            <i
+              class="fa-solid fa-magnifying-glass cursor-pointer hover:text-amber-500"
+            ></i>
           </span>
-          <a href="../Components/SignUp.html"><i class="fa-regular fa-user cursor-pointer hover:text-amber-500"></i></a>
-          <span><i class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"></i></span>
+          <a href="../Components/SignUp.html"
+            ><i
+              class="fa-regular fa-user cursor-pointer hover:text-amber-500"
+            ></i
+          ></a>
+          <a href="./ShoppingCart.html"
+            ><i
+              class="fa-solid fa-bag-shopping cursor-pointer hover:text-amber-500"
+            ></i
+          ></a>
         </div>
       </div>
       <div
-        class="header-text flex flex-col items-center justify-between lg:w-[30%] w-[50%] gap-3 self-center text-white"
+        class="header-text flex flex-col items-center justify-between w-[100%] gap-3 self-center text-white"
       >
         <h3 class="text-xl font-bold">Shopping Cart</h3>
         <p class="text-xs font-thin hover:text-amber-500">
           <a href="../index.html">
-            Home > <span class="text-amber-500 hover:text-white">Shopping cart</span>
+            Home >
+            <span class="text-amber-500 hover:text-white">Shopping cart</span>
           </a>
         </p>
       </div>
@@ -135,410 +152,33 @@
     </header>
 
     <section
-      class="w-[100%] lg:px-[120px] px-[40px] flex flex-col grid grid-cols-2 lg:grid-cols-1 mt-15"
+      class="w-[100%] lg:px-[120px] px-[40px] flex flex-col items-center justify-center grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 mt-15"
     >
-      <div
-        class="hidden lg:grid grid-cols-12 gap-4 pb-2 text-lg font-bold text-gray-900 "
+      <div id="cart-container"></div>
+      <a
+        href="../Views/Shop.html"
+        class="flex items-center justify-center self-center text-xs font-semibold h-[20px] w-[20%] py-4 px-3 bg-amber-500 text-white rounded-lg hover:bg-yellow-300 hover:text-amber-500 cursor-pointer select-none mt-10"
       >
-        <h3
-          class="col-span-4"
-        >
-          Product
-        </h3>
-        <h3
-          class="col-span-2 text-center"
-        >
-          Price
-        </h3>
-        <h3
-          class="col-span-2 text-center"
-        >
-          Quantity
-        </h3>
-        <h3
-          class="col-span-2 text-center"
-        >
-          Total
-        </h3>
-        <h3
-          class="col-span-2 text-center"
-        >
-          Remove
-        </h3>
-      </div>
-      <!-- BURGER -->
-      <div
-        class="cart-item grid grid-cols-1 lg:grid-cols-12 gap-4 items center py-6 text-center lg:text-left"
-        data-price="15"
-      >
-        <div
-          class="cols-span-1 lg:col-span-4 flex flex-col lg:flex-row items-center gap-3 lg:gap-4"
-        >
-          <img
-            class="w-20 h-20 object-cover rounded"
-            src="../Assets/photos/shop-burger.png"
-            alt="Burger"
-          />
-          <div>
-            <h3 class="font-bold text-lg text-gray-900">Burger</h3>
-            <div class="text-amber-500 text-xs" arial-label="3 out of 5 stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star text-gray-300"></i>
-              <i class="fas fa-star text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-        <!-- PRICE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center text-gray-500 font-medium text-center flex items-center justify-center"
-        >
-          $<span class="item-price">15.00</span>
-        </div>
-        <!-- QUANTITY -->
-        <div class="col-span-1 lg:col-span-2 flex items-center justify-center">
-          <div
-            class="flex items-center justify-center border rounded-full h-[30px] px-3 py-1 bg-gray-50"
-          >
-            <button
-              type="button"
-              class="qty-minus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Decrease Pizza quantity"
-            >
-              -
-            </button>
-            <span class="qty-value px-3 font-semibold text-sm">1</span>
-            <button
-              type="button"
-              class="qty-plus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Increase Pizza quantity"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <!-- TOTAL -->
-        <div
-          class="flex items-center justify-center col-span-1 lg:col-span-2 text-center font-bold text-gray-900 text-sm"
-        >
-          $<span class="item-total">15.00</span>
-        </div>
-        <!-- REMOVE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center flex items-center justify-center"
-        >
-          <button
-            type="button"
-            class="remove-item text-gray-500 hover:text-amber-500 transition-colors text-xl"
-            arial-label="Remove Pizza"
-          >
-            &times;
-          </button>
-        </div>
-      </div>
-      <span class="hidden lg:flex bg-gray-200 w-full h-[0.5px]"></span>
-      <!-- FRESH LIME -->
-      <div
-        class="cart-item grid grid-cols-1 lg:grid-cols-12 gap-4 items center py-6 text-center lg:text-left"
-        data-price="15"
-      >
-        <div
-          class="cols-span-1 lg:col-span-4 flex flex-col lg:flex-row items-center gap-3 lg:gap-4"
-        >
-          <img
-            class="w-20 h-20 object-cover rounded"
-            src="../Assets/photos/shop-fresh lime.png"
-            alt="Pizza"
-          />
-          <div>
-            <h3 class="font-bold text-lg text-gray-900">Fresh Lime</h3>
-            <div class="text-amber-500 text-xs" arial-label="3 out of 5 stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star text-gray-300"></i>
-              <i class="fas fa-star text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-        <!-- PRICE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center text-gray-500 font-medium text-center flex items-center justify-center"
-        >
-          $<span class="item-price">15.00</span>
-        </div>
-        <!-- QUANTITY -->
-        <div class="col-span-1 lg:col-span-2 flex items-center justify-center">
-          <div
-            class="flex items-center justify-center border rounded-full h-[30px] px-3 py-1 bg-gray-50"
-          >
-            <button
-              type="button"
-              class="qty-minus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Decrease Pizza quantity"
-            >
-              -
-            </button>
-            <span class="qty-value px-3 font-semibold text-sm">1</span>
-            <button
-              type="button"
-              class="qty-plus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Increase Pizza quantity"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <!-- TOTAL -->
-        <div
-          class="flex items-center justify-center col-span-1 lg:col-span-2 text-center font-bold text-gray-900 text-sm"
-        >
-          $<span class="item-total">15.00</span>
-        </div>
-        <!-- REMOVE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center flex items-center justify-center"
-        >
-          <button
-            type="button"
-            class="remove-item text-gray-500 hover:text-amber-500 transition-colors text-xl"
-            arial-label="Remove Pizza"
-          >
-            &times;
-          </button>
-        </div>
-      </div>
-      <span class="hidden lg:flex bg-gray-200 w-full h-[0.5px]"></span>
-      <!-- PIZZA -->
-      <div
-        class="cart-item grid grid-cols-1 lg:grid-cols-12 gap-4 items center py-6 text-center lg:text-left"
-        data-price="15"
-      >
-        <div
-          class="cols-span-1 lg:col-span-4 flex flex-col lg:flex-row items-center gap-3 lg:gap-4"
-        >
-          <img
-            class="w-20 h-20 object-cover rounded"
-            src="../Assets/photos/shop-pizza.png"
-            alt="Pizza"
-          />
-          <div>
-            <h3 class="font-bold text-lg text-gray-900">Pizza</h3>
-            <div class="text-amber-500 text-xs" arial-label="3 out of 5 stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star text-gray-300"></i>
-              <i class="fas fa-star text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-        <!-- PRICE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center text-gray-500 font-medium text-center flex items-center justify-center"
-        >
-          $<span class="item-price">15.00</span>
-        </div>
-        <!-- QUANTITY -->
-        <div class="col-span-1 lg:col-span-2 flex items-center justify-center">
-          <div
-            class="flex items-center justify-center border rounded-full h-[30px] px-3 py-1 bg-gray-50"
-          >
-            <button
-              type="button"
-              class="qty-minus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Decrease Pizza quantity"
-            >
-              -
-            </button>
-            <span class="qty-value px-3 font-semibold text-sm">1</span>
-            <button
-              type="button"
-              class="qty-plus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Increase Pizza quantity"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <!-- TOTAL -->
-        <div
-          class="flex items-center justify-center col-span-1 lg:col-span-2 text-center font-bold text-gray-900 text-sm"
-        >
-          $<span class="item-total">15.00</span>
-        </div>
-        <!-- REMOVE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center flex items-center justify-center"
-        >
-          <button
-            type="button"
-            class="remove-item text-gray-500 hover:text-amber-500 transition-colors text-xl"
-            arial-label="Remove Pizza"
-          >
-            &times;
-          </button>
-        </div>
-      </div>
-      <span class="hidden lg:flex bg-gray-200 w-full h-[0.5px]"></span>
-      <!-- CHOCOLATE MUFFIN -->
-      <div
-        class="cart-item grid grid-cols-1 lg:grid-cols-12 gap-4 items center py-6 text-center lg:text-left"
-        data-price="15"
-      >
-        <div
-          class="cols-span-1 lg:col-span-4 flex flex-col lg:flex-row items-center gap-3 lg:gap-4"
-        >
-          <img
-            class="w-20 h-20 object-cover rounded"
-            src="../Assets/photos/shop-chocolate muffin.png"
-            alt="Pizza"
-          />
-          <div>
-            <h3 class="font-bold text-lg text-gray-900">Chocolate Muffin</h3>
-            <div class="text-amber-500 text-xs" arial-label="3 out of 5 stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star text-gray-300"></i>
-              <i class="fas fa-star text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-        <!-- PRICE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center text-gray-500 font-medium text-center flex items-center justify-center"
-        >
-          $<span class="item-price">15.00</span>
-        </div>
-        <!-- QUANTITY -->
-        <div class="col-span-1 lg:col-span-2 flex items-center justify-center">
-          <div
-            class="flex items-center justify-center border rounded-full h-[30px] px-3 py-1 bg-gray-50"
-          >
-            <button
-              type="button"
-              class="qty-minus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Decrease Pizza quantity"
-            >
-              -
-            </button>
-            <span class="qty-value px-3 font-semibold text-sm">1</span>
-            <button
-              type="button"
-              class="qty-plus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Increase Pizza quantity"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <!-- TOTAL -->
-        <div
-          class="flex items-center justify-center col-span-1 lg:col-span-2 text-center font-bold text-gray-900 text-sm"
-        >
-          $<span class="item-total">15.00</span>
-        </div>
-        <!-- REMOVE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center flex items-center justify-center"
-        >
-          <button
-            type="button"
-            class="remove-item text-gray-500 hover:text-amber-500 transition-colors text-xl"
-            arial-label="Remove Pizza"
-          >
-            &times;
-          </button>
-        </div>
-      </div>
-      <span class="hidden lg:flex bg-gray-200 w-full h-[0.5px]"></span>
-      <!-- CHEESE BUTTER -->
-      <div
-        class="cart-item grid grid-cols-1 lg:grid-cols-12 gap-4 items center py-6 text-center lg:text-left"
-        data-price="15"
-      >
-        <div
-          class="cols-span-1 lg:col-span-4 flex flex-col lg:flex-row items-center gap-3 lg:gap-4"
-        >
-          <img
-            class="w-20 h-20 object-cover rounded"
-            src="../Assets/photos/shop-cheese butter.png"
-            alt="Pizza"
-          />
-          <div>
-            <h3 class="font-bold text-lg text-gray-900">Cheese Butter</h3>
-            <div class="text-amber-500 text-xs" arial-label="3 out of 5 stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star text-gray-300"></i>
-              <i class="fas fa-star text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-        <!-- PRICE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center text-gray-500 font-medium text-center flex items-center justify-center"
-        >
-          $<span class="item-price">15.00</span>
-        </div>
-        <!-- QUANTITY -->
-        <div class="col-span-1 lg:col-span-2 flex items-center justify-center">
-          <div
-            class="flex items-center justify-center border rounded-full h-[30px] px-3 py-1 bg-gray-50"
-          >
-            <button
-              type="button"
-              class="qty-minus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Decrease Pizza quantity"
-            >
-              -
-            </button>
-            <span class="qty-value px-3 font-semibold text-sm">1</span>
-            <button
-              type="button"
-              class="qty-plus flex items-center justify-center text-gray-500 text-base hover:text-gray-900 px-2 font-bold"
-              arial-label="Increase Pizza quantity"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <!-- TOTAL -->
-        <div
-          class="flex items-center justify-center col-span-1 lg:col-span-2 text-center font-bold text-gray-900 text-sm"
-        >
-          $<span class="item-total">15.00</span>
-        </div>
-        <!-- REMOVE -->
-        <div
-          class="col-span-1 lg:col-span-2 text-center flex items-center justify-center"
-        >
-          <button
-            type="button"
-            class="remove-item text-gray-500 hover:text-amber-500 transition-colors text-xl"
-            arial-label="Remove Pizza"
-          >
-            &times;
-          </button>
-        </div>
-      </div>
-      <span class="hidden lg:flex bg-gray-200 w-full h-[0.5px]"></span>
+        Add Items to Cart
+      </a>
+    </section>
 
+    <!-- DOWN AREA -->
+    <section class="w-[100%] lg:px-[120px] px-[40px] flex mt-5">
       <!-- DOWN PART -->
       <div
-        class="flex items-start justify-center mt-10 gap-4 w-[100%] grid grid-cols-1 lg:grid-cols-2 "
+        class="flex items-start justify-center mt-10 gap-4 w-[100%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
       >
         <!-- COUPON -->
         <div class="flex flex-col items-start justify-center gap-4">
           <h3 class="text-xl text-gray-900 font-bold">Coupon Code</h3>
           <div class="border border-gray-100 rounded px-2 py-4">
             <p class="text-xs text-gray-800 lg:w-[70%] md:w-[70%] w-[100%]">
-              If you have free coupon card, scratch it and enter the code here to enjoy 50% discount on all your orders. Thank you!
+              If you have free coupon card, scratch it and enter the code here
+              to enjoy 50% discount on all your orders. Thank you!
             </p>
-            <form action=""
+            <form
+              action=""
               class="flex items-center justify-center border border-gray-100 rounded mt-4 w-full"
             >
               <input
@@ -547,7 +187,8 @@
                 class="outline-none p-3 placeholder:text-gray-500 placeholder:text-xs w-[70%] lg:w-full"
               />
               <button
-                type="submit" class="bg-amber-500 rounded text-center text-xs text-white p-4 font-lg w-[40%] lg:w-[15%] cursor-pointer hover:bg-yellow-300 hover:text-amber-600"
+                type="submit"
+                class="bg-amber-500 rounded text-center text-xs text-white p-4 font-lg w-[40%] lg:w-[15%] cursor-pointer hover:bg-yellow-300 hover:text-amber-600"
               >
                 Apply
               </button>
@@ -558,26 +199,33 @@
         <div class="flex flex-col items-start justify-center gap-4">
           <h3 class="text-xl text-gray-900 font-bold">Total Bill</h3>
           <div class="border border-gray-200 rounded px-3 py-4 w-full">
-            <div class="flex items-center justify-between text-base text-gray-900 font-bold w-full">
-                <h3>Cart Subtotal</h3>
-                <span>$120.00</span>
+            <div
+              class="flex items-center justify-between text-base text-gray-900 font-bold w-full"
+            >
+              <h3>Your Cart Subtotal</h3>
+              <span id="cart-total">$0</span>
             </div>
-            <div class="flex items-center justify-between text-xs text-gray-600 w-[100%] mt-2">
+            <div
+              class="flex items-center justify-between text-xs text-gray-600 w-[100%] mt-2"
+            >
               <p>Shipping Charge</p>
-              <span>$00.00</span>
+              <span id="cart-shipping-charge">$0</span>
             </div>
-            </div>
-            <div class="flex items-center justify-between text-base text-gray-900 font-bold w-full border rounded border-gray-200 mt-[-18px] p-3">
-                <h3>Total Amount</h3>
-                <span>$205.00</span>
-            </div>
-            <button
-                class="bg-amber-500 rounded text-center text-xs text-white p-4 font-semibold w-[100%] hover:bg-yellow-300 hover:text-amber-600"
-              >
-                <a href="./Checkout.html">Proceed to Checkout <span><i class="fa-solid fa-arrow-up-right-from-square"></i
-                ></span></a>
-              </button>
           </div>
+          <div
+            class="checkout-summary flex items-center justify-between text-base text-gray-900 font-bold w-full border rounded border-gray-200 mt-[-18px] p-3"
+          >
+            <h3>Total Amount</h3>
+            <span id="cart-final-total-amount">$0</span>
+          </div>
+          <button
+            class="bg-amber-500 rounded text-center text-xs text-white p-4 font-semibold w-[100%] hover:bg-yellow-300 hover:text-amber-600 cursor-pointer"
+          >
+            <a href="./Checkout.html"
+              >Proceed to Checkout
+              <span><i class="fa-solid fa-arrow-up-right-from-square"></i></span
+            ></a>
+          </button>
         </div>
       </div>
     </section>
@@ -587,7 +235,7 @@
       class="bg-black flex flex-col items-center gap-6 text-white mt-20 pt-[70px]"
     >
       <div
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[70%] sm:w-[70%] lg:w-[70%]"
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[80%]"
       >
         <div class="flex flex-col items-start gap-1">
           <h3 class="text-sm lg:text-xl sm:text-base font-medium">
@@ -609,7 +257,7 @@
         </div>
       </div>
 
-      <span class="border border-amber-500 h-[1px] w-[70%] self-center"></span>
+      <span class="border border-amber-500 h-[1px] w-[80%] self-center"></span>
 
       <div
         class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"

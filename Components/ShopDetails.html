@@ -16,7 +16,7 @@
   <body>
     <!-- HEADER -->
     <header
-      class="views-header flex flex-col w-[100%] h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
+      class="views-header flex flex-col w-[100%] h-[35vh] lg:h-[50vh] bg-[url(../Assets/photos/views-bg-image.png)] bg-cover bg-center bg-no-repeat"
     >
       <div
         class="hidden lg:flex md:flex items-center justify-center w-[100%] h-[50px] bg-black text-white px-[40px] lg:px-[120px]"
@@ -27,19 +27,21 @@
           </h3>
           <nav class="flex gap-5 font-small text-sm">
             <a href="../index.html" class="hover:text-amber-500">Home</a>
-            <a href="./Menu.html" class="hover:text-amber-500">Menu</a>
-            <a href="./Blog.html" class="hover:text-amber-500">Blog</a>
+            <a href="../Views/Menu.html" class="hover:text-amber-500">Menu</a>
+            <a href="../Views/Blog.html" class="hover:text-amber-500">Blog</a>
             <a href="#" class="hover:text-amber-500">Pages</a>
-            <a href="./About.html" class="hover:text-amber-500">About</a>
-            <a href="./Shop.html" class="hover:text-amber-500">Shop</a>
+            <a href="../Views/About.html" class="hover:text-amber-500">About</a>
+            <a href="../Views/Shop.html" class="hover:text-amber-500">Shop</a>
             <a href="#" class="hover:text-amber-500">Contact</a>
           </nav>
           <div class="search-bag flex gap-2">
             <span>
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
-            <span><i class="fa-regular fa-user"></i></span>
-            <span><i class="fa-solid fa-bag-shopping"></i></span>
+            <a href="./SignIn.html"><i class="fa-regular fa-user"></i></a>
+            <a href="./ShoppingCart.html"
+              ><i class="fa-solid fa-bag-shopping"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -74,12 +76,13 @@
         </div>
       </div>
       <div
-        class="header-text flex flex-col items-center justify-between w-[30%] gap-3 self-center text-white"
+        class="header-text flex flex-col items-center justify-between w-[100%] gap-3 self-center text-white"
       >
         <h3 class="text-xl font-bold">Shop Details</h3>
         <p class="text-xs font-thin hover:text-amber-500">
           <a href="../index.html">
-            Home > <span class="text-amber-500 hover:text-white">Shop details</span>
+            Home >
+            <span class="text-amber-500 hover:text-white">Shop details</span>
           </a>
         </p>
       </div>
@@ -143,31 +146,19 @@
       </div>
     </header>
 
-    <section class="flex iems-center justify-center w-[100%] lg:px-[120px] px-[40px]">
+    <section
+      class="flex iems-center justify-center w-[100%] lg:px-[120px] px-[40px]"
+    >
       <!-- CONTAINER -->
       <section class="w-full mt-25 flex flex-col items-center justify-center">
         <!-- PART ONE -->
         <div
-          class="flex items-start justify-between gap-6 w-[100%] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 lg:flex"
+          class="flex items-start justify-between gap-6 w-[100%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:flex"
         >
           <!-- IMAGES -->
-          <div
-            class="flex items-start justify-center gap-3 w-[100%] order-2 sm:order-2 lg:order-1"
-          >
-            <!-- FIRST PART -->
-            <div
-              class="flex flex-col items-start justify-between gap-3 w-[24%]"
-            >
-              <img src="../Assets/photos/shopDetails-img-1.png" alt="" />
-              <img src="../Assets/photos/shopDetails-img-2.png" alt="" />
-              <img src="../Assets/photos/shopDetails-img-3.png" alt="" />
-              <img src="../Assets/photos/shopDeatils-img-4.png" alt="" />
-            </div>
-            <!-- SECOND PART -->
-            <div class="w-[85%]">
-              <img src="../Assets/photos/shopDetails-img-5.png" alt="" />
-            </div>
-          </div>
+
+          <img id="detail-image" src="" class="w-[100%]" alt="Loading...." />
+
           <!-- TEXT AREA -->
           <div
             class="flex flex-col items-start justify-center w-[100%] order-1 sm:order-1 lg:order-2"
@@ -179,10 +170,13 @@
                 In stock
               </div>
             </div>
-            <h3 class="text-3xl text-gray-900 font-bold mt-1">
-              Yummy Chicken Chup
+            <h3 id="detail-name" class="text-3xl text-gray-900 font-bold mt-1">
+              Loading.....
             </h3>
-            <p class="text-xs text-gray-700 font-small mt-6">
+            <p
+              id="detail-description"
+              class="text-xs text-gray-700 font-small mt-6"
+            >
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
               fugit hic exercitationem nesciunt odit laborum mollitia, beatae
               ipsam ullam et molestiae nisi unde provident reiciendis earum
@@ -191,7 +185,9 @@
               nesciunt odit laborum mollitia
             </p>
             <span class="bg-gray-200 w-full h-[0.5px] mt-4"></span>
-            <h3 class="text-lg text-gray-900 font-bold mt-5">54.00$</h3>
+            <h3 id="detail-price" class="text-lg text-gray-900 font-bold mt-5">
+              54.00$
+            </h3>
             <div
               class="flex items-center justify-center gap-2 text-xs text-gray-400 mt-1"
             >
@@ -210,45 +206,68 @@
             <p class="text-xs text-gray-700 font-small mt-3">
               Dictum/Cursus/Risus
             </p>
-            <div class="flex items-center justify-center gap-3 mt-4">
+            <div class="flex items-center justify-center gap-3 mt-4 w-[70%]">
               <!-- Quanity -->
-              <div
-                class="flex h-[40px] w-[130px] shrink-0 border border-gray-400"
+              <input
+                id="detail-quantity"
+                type="number"
+                min="1"
+                max="100"
+                value="1"
+                class="h-[40px] w-50 border border-gray-200 rounded-lg pl-10 outline-none"
+              />
+              <!-- <div
+                class="flex h-[40px] w-[50%] border border-gray-400 rounded overflow-hidden select-none bg-white"
               >
                 <button
-                  id="minusBtn"
-                  class="flex-1 border-r-1 border-gray-400 text-gray-500 text-2xl font-light hover:bg-amber-300"
+                  id="decreaseBtn"
+                  class="flex-1 border-r-1 border-gray-400 text-gray-500 text-2xl font-bold hover:bg-amber-300 transition-colors focus:outline-none select-none cursor-pointer"
                 >
                   -
                 </button>
                 <span
-                  id="quantity"
-                  class="flex-1 flex items-center justify-center border-r-1 border-gray-400 text-gray-800 text-lg font-bold"
+                  id="quantityDisplay"
+                  class="flex-1 flex items-center justify-center border-r-1 border-gray-400 text-gray-900 text-lg font-bold bg-white"
                 >
                   1
                 </span>
                 <button
-                  id="plusBtn"
-                  class="flex-1 border-gray-400 text-gray-500 text-2xl font-light hover:bg-amber-300"
+                  id="increaseBtn"
+                  class="flex-1 border-gray-400 text-gray-500 text-2xl font-bold hover:bg-amber-300 transition-colors focus:outline-none select-none cursor-pointer"
                 >
                   +
                 </button>
-              </div>
+              </div> -->
               <!-- CART -->
-              <button
-                class="bg-amber-500 text-white text-sm font-light text-center h-[40px] w-[130px]"
-              >
-                <a href="./ShoppingCart.html">
-                  <span><i class="fa-solid fa-bag-shopping"></i> </span> Add to
-                  cart
-                </a>
-              </button>
+              <div class="relative flex flex-col items-center">
+                <div
+                  id="customAlert"
+                  class="hidden absolute -top-14 bg-emerald-500 text-white text-sm font-semivold px-4 py-2 rounded-lg shadow-md transition-all duration-300 transform translate-y-2 opacity-0 whitespace-nowrap z-10"
+                >
+                  <i class="fas fa-check-circle mr-1.5"></i> Added to cart
+                  successfully!
+                </div>
+
+                <button
+                  id="add-to-cart-button"
+                  class="bg-amber-500 text-white text-sm font-light text-center h-[40px] w-full px-5 hover:bg-yellow-300 hover:text-amber-500 font-semibold rounded space-x-2 transition-colors focus:outline-none select-none cursor-pointer"
+                >
+                  <a href="./ShoppingCart.html" id="add-to-cart-btn" class="flex items-center justify-center gap-2">
+                    <i class="fas fa-shopping-bag text-sm opacity-90"></i>
+                    <span> Add to cart</span>
+                  </a>
+                </button>
+              </div>
             </div>
+
             <span class="bg-gray-200 w-full h-[0.5px] mt-4"></span>
+
             <p class="mt-3 text-gray-900 text-xs font-small">
               Add to Whishlist
             </p>
-            <p class="mt-1 text-gray-900 text-xs font-small">Category: Pizza</p>
+            <p id="detail-name" class="mt-1 text-gray-900 text-xs font-small">
+              Category
+            </p>
             <p class="mt-1 text-gray-900 text-xs font-small">Tag: Our Shop</p>
             <p class="mt-2 text-gray-900 text-xs font-small">
               Share: <span></span>
@@ -270,7 +289,10 @@
               Reviews (24)
             </p>
           </div>
-          <p class="text-sm text-gray-600 font-small mt-5">
+          <p
+            id="detail-description"
+            class="text-sm text-gray-600 font-small mt-5"
+          >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In ipsa
             officia enim, voluptate similique saepe aspernatur sapiente eligendi
             soluta, corrupti ipsam quaerat fuga iure, quibusdam quos repudiandae
@@ -279,7 +301,10 @@
             consectetur iusto ut velit accusamus ipsa tenetur dolorem, enim vel,
             provident dolorum. Laborum, debitis.
           </p>
-          <p class="text-sm text-gray-600 font-small mt-5">
+          <p
+            id="detail-description"
+            class="text-sm text-gray-600 font-small mt-5"
+          >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. In ipsa
             officia enim, voluptate similique saepe aspernatur sapiente eligendi
             soluta, corrupti ipsam quaerat fuga iure, quibusdam quos repudiandae
@@ -320,7 +345,7 @@
               </p>
             </div>
             <div class="flex flex-col items-start justify-center gap-2">
-              <img src="../Assets/photos/shop-chocolate muffin.png" alt="" />
+              <img src="../Assets/photos/shop-chocolate-muffin.png" alt="" />
               <h4 class="text-base font-bold">Fresh Lime</h4>
               <p class="flex gap-3 text-amber-500 text-sm font-small">$28.00</p>
             </div>
@@ -349,7 +374,7 @@
       class="bg-black flex flex-col items-center gap-6 text-white mt-20 pt-[70px]"
     >
       <div
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[70%] sm:w-[70%] lg:w-[70%]"
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 flex flex-row items-center sm:items-center lg:items-center justify-between w-[80%]]"
       >
         <div class="flex flex-col items-start gap-1">
           <h3 class="text-sm lg:text-xl sm:text-base font-medium">
@@ -371,7 +396,7 @@
         </div>
       </div>
 
-      <span class="border border-amber-500 h-[1px] w-[70%] self-center"></span>
+      <span class="border border-amber-500 h-[1px] w-[80%] self-center"></span>
 
       <div
         class="flex gap-[20px] items-center sm:items-start lg:items-start justify-center w-[80%] lg:w-[80%] sm:w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:flex"
