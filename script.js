@@ -345,6 +345,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("cart-container")) {
     initCartPage();
   }
+  // If elements from the checkout exist, initialize them
+  if (document.getElementById("checkout-form")) {
+    initCheckoutPage();
+  }
 });
 
 // ==========================================
@@ -507,185 +511,346 @@ window.removeItem = function (id) {
 
 // CHECKOUT PAGE FUNCTION
 
-// function initCheckoutPage() {
-//   const countrySelect = document.getElementById("country-select");
-//   const stateSelect = document.getElementById("state-select");
-//   const checkoutForm = document.getElementById("checkout-form");
+const localCountryData = {
+  Nigeria: [
+    "Abia",
+    "Adamawa",
+    "Akwa Ibom",
+    "Anambra",
+    "Bauchi",
+    "Bayelsa",
+    "Benue",
+    "Borno",
+    "Cross River",
+    "Delta",
+    "Ebonyi",
+    "Edo",
+    "Ekiti",
+    "Enugu",
+    "FCT - Abuja",
+    "Gombe",
+    "Imo",
+    "Jigawa",
+    "Kaduna",
+    "Kano",
+    "Katsina",
+    "Kebbi",
+    "Kogi",
+    "Kwara",
+    "Lagos",
+    "Nasarawa",
+    "Niger",
+    "Ogun",
+    "Ondo",
+    "Osun",
+    "Oyo",
+    "Plateau",
+    "Rivers",
+    "Sokoto",
+    "Taraba",
+    "Yobe",
+    "Zamfara",
+  ],
+  "United States": [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
+  ],
+  "United Kingdom": ["England", "Scotland", "Wales", "Northern Ireland"],
 
-//   if (!checkoutForm) return;
+  " Canada": [
+    "Alberta",
+    "British Columbia",
+    "Manitoba",
+    "New Brunswick",
+    "Newfoundland and Labrador",
+    "Nova Scotia",
+    "Ontario",
+    "Prince Edward Island",
+    "Quebec",
+    "Saskatchewan",
+  ],
+  " Ghana": [
+    "Greater Accra",
+    "Ashanti",
+    "Western",
+    "Northern",
+    "Eastern",
+    "Central",
+    "Volta",
+    "Upper East",
+    "Upper West",
+    "Bono",
+  ],
+};
 
-//   // 1. Fetch Real-Life Countries alphabetically into your dropdown
-//   fetch("https://restcountries.com")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       data.sort((a, b) => a.name.common.localeCompare(b.name.common));
-//       if (countrySelect) {
-//         countrySelect.innerHTML =
-//           '<option value="">Choose your country</option>';
-//         data.forEach((country) => {
-//           countrySelect.innerHTML += (
-//             <option value="${country.cca2}">${country.name.common}</option>
-//           );
-//         });
-//       }
-//     })
-//     .catch((err) => console.error("Error connecting to country API:", err));
+function openOrderSummarySidebar() {
+  const sidebar = document.getElementById("order-summary-sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+  const itemsContainer = document.getElementById("sidebar-items-list");
 
-//   // 2. Sync Selected Country with real-life States/Cities
-//   if (countrySelect && stateSelect) {
-//     countrySelect.addEventListener("change", function () {
-//       const countryName =
-//         countrySelect.options[countrySelect.selectedIndex].text;
-//       if (!this.value) {
-//         stateSelect.disabled = true;
-//         stateSelect.innerHTML = '<option value="">Choose your city</option>';
-//         return;
-//       }
+  if (!sidebar || !overlay || !itemsContainer) {
+    console.error(
+      "Missing critical sidebar wrapper element nodes in HTML markup.",
+    );
+    return;
+  }
 
-//       stateSelect.disabled = false;
-//       stateSelect.innerHTML = '<option value="">Loading regions...</option>';
+  const cartData = JSON.parse(localStorage.getItem("shopCart")) || [];
 
-//       fetch(`https://countriesnow.space`, {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ country: countryName }),
-//       })
-//         .then((res) => res.json())
-//         .then((result) => {
-//           stateSelect.innerHTML = '<option value="">Choose your city</option>';
-//           if (result.data && result.data.states.length > 0) {
-//             result.data.states.forEach((state) => {
-//               stateSelect.innerHTML += (
-//                 <option value="${state.state_code || state.name}">
-//                   ${state.name}
-//                 </option>
-//               );
-//             });
-//           } else {
-//             stateSelect.innerHTML =
-//               '<option value="N/A">No formal regions available</option>';
-//           }
-//         })
-//         .catch(() => {
-//           stateSelect.innerHTML =
-//             '<option value="">Error compiling region details</option>';
-//         });
-//     });
-//   }
+  itemsContainer.innerHTML = "";
+  let subtotal = 0;
 
-//   // 3. Handle Order Interception and Summary Computations
-//   checkoutForm.addEventListener("submit", function (e) {
-//     e.preventDefault(); // Stop native HTML file refreshing behaviors
+  cartData.forEach((item) => {
+    const itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
 
-//     // Read field value allocations from your form setup
-//     const firstName =
-//       document.getElementById("customer-first-name")?.value || "";
-//     const lastName = document.getElementById("customer-last-name")?.value || "";
-//     const email = document.getElementById("customer-email")?.value || "";
-//     const phone = document.getElementById("customer-phone")?.value || "";
-//     const company = document.getElementById("customer-company")?.value || "N/A";
-//     const country = countrySelect
-//       ? countrySelect.options[countrySelect.selectedIndex].text
-//       : "";
-//     const cityState = stateSelect
-//       ? stateSelect.options[stateSelect.selectedIndex].text
-//       : "";
-//     const zip = document.getElementById("customer-zip")?.value || "";
-//     const address1 = document.getElementById("customer-address-1")?.value || "";
-//     const address2 =
-//       document.getElementById("customer-address-2")?.value || "N/A";
+    itemsContainer.innerHTML += `
+    <div class="flex items-center space-x-4 border-b border-gray-200 pb-3 mb-3">
+    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded bg-gray-50 border-gray-100 border">
+    <div class="flex-1">
+    <h4  class="font-bold text-gray-900 text-sm">${item.name}</h4>
+    <p  class="text-xs text-gray-400">${item.quantity}x @ $${item.price.toFixed(2)}</p>
+    </div>
+    <span  class="font-semibold text-sm text-gray-900">$${itemTotal.toFixed(2)}</span>
+    </div>`;
+  });
+  const shippingFee = subtotal > 0 ? 1.0 : 0.0;
+  const discount = subtotal * 0.1;
+  const tax = subtotal * 0.05;
+  const cumulativeTotal = subtotal + shippingFee + tax - discount;
 
-//     // Pull active items array out of memory
-//     const cartData = JSON.parse(localStorage.getItem("shopCart")) || [];
+  document.getElementById("sidebar-subtotal").innerText =
+    `$${subtotal.toFixed(2)}`;
+  document.getElementById("sidebar-shipping").innerText =
+    shippingFee > 0 ? `$${shippingFee.toFixed(2)}` : "Free";
+  document.getElementById("sidebar-discount").innerText =
+    `-$${discount.toFixed(2)}`;
+  document.getElementById("sidebar-tax").innerText = `$${tax.toFixed(2)}`;
+  document.getElementById("sidebar-grand-total").innerText =
+    `$${cumulativeTotal.toFixed(2)}`;
 
-//     if (cartData.length === 0) {
-//       alert("Your checkout batch appears empty. Return to store gallery.");
-//       return;
-//     }
+  overlay.classList.remove("hidden");
+  setTimeout(() => {
+    overlay.classList.add("opacity-100");
+    sidebar.classList.remove("translate-x-full");
+  }, 10);
+}
 
-//     // Build product list block descriptions for invoices
-//     let orderSummaryText = "";
-//     let finalProductCost = 0;
-//     cartData.forEach((item) => {
-//       orderSummaryText += `${item.name} (Qty: ${item.quantity}) - ₦${(item.price * item.quantity).toLocaleString()}\n`;
-//       finalProductCost += item.price * item.quantity;
-//     });
+function closeOrderSummarySidebar() {
+  const sidebar = document.getElementById("order-summary-sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
 
-//     // Calculate your 5% shipping fee
-//     const calculationShipping = finalProductCost * 0.05;
-//     const cumulativeBillAmount = finalProductCost + calculationShipping;
+  if (!sidebar || !overlay) return;
 
-//     // --- DATA BINDING PACKET ---
-//     const emailPayloadData = {
-//       customer_name: `${firstName} ${lastName}`,
-//       customer_email: email,
-//       customer_phone: phone,
-//       customer_company: company,
-//       delivery_location: `${address1}, ${address2}, ${cityState}, ${country} (${zip})`,
-//       order_summary: orderSummaryText,
-//       total_bill: `₦${cumulativeBillAmount.toLocaleString()}`,
-//     };
+  sidebar.classList.add("translate-x-full");
+  overlay.classList.remove("opacity-100");
+  setTimeout(() => {
+    overlay.classList.add("hidden");
+  }, 300);
+}
 
-//     // Output to inspect tools panel terminal to verify fields link correctly
-//     console.log(
-//       "Transmission packet finalized for notification engine:",
-//       emailPayloadData,
-//     );
+function initCheckoutPage() {
+  const countrySelect = document.getElementById("country-select");
+  const stateSelect = document.getElementById("state-select");
+  const checkoutForm = document.getElementById("checkout-form");
 
-//     /* 
-//         =====================================================
-//         EMAILJS ENGINE CONNECTION PREPARATION BLOCK
-//         =====================================================
-//         To make this submit straight into your email inbox:
-//         1. Add the EmailJS script script snippet to your HTML head.
-//         2. Uncomment the execution block below:
+  if (!checkoutForm) {
+    console.warn("Target form contact not detected");
+    return;
+  }
 
-//         emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", emailPayloadData)
-//             .then(() => console.log("Success! Notification email sent."))
-//             .catch(err => console.error("EmailJS Error:", err));
-//         */
+  if (countrySelect) {
+    countrySelect.innerHTML = `<option value="">Choose your country</option>`;
+    Object.keys(localCountryData).forEach((country) => {
+      countrySelect.innerHTML += `<option value="${country}"> ${country}</option>`;
+    });
+  }
 
-//     // 4. Trigger Live Confirmation Overlay On-Screen Toast Notification
-//     showDeliveryStatusToast(`${firstName} ${lastName}`);
+  if (countrySelect && stateSelect) {
+    countrySelect.addEventListener("change", function () {
+      const selectedCountry = this.value;
 
-//     // Wipe cart memory clean upon completion
-//     localStorage.removeItem("shopCart");
-//   });
+      if (!selectedCountry) {
+        stateSelect.disabled = true;
+
+        stateSelect.innerHTML = `<option value="">Choose your state</option>`;
+        return;
+      }
+      stateSelect.disabled = false;
+      stateSelect.innerHTML = `<option value="">Choose your state</option>`;
+
+      const states = localCountryData[selectedCountry] || [];
+      states.forEach((state) => {
+        stateSelect.innerHTML += `<option value="${state}">${state}</option>`;
+      });
+    });
+  }
+
+  //   // 3. Handle Order Interception and Summary Computations
+  checkoutForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop native HTML file refreshing behaviors
+
+    const cartData = JSON.parse(localStorage.getItem("shopCart")) || [];
+    if (cartData.length === 0) {
+      alert("Your checkout batch appears empty. Return to store gallery.");
+      return;
+    }
+
+    openOrderSummarySidebar();
+  });
+
+  document
+    .getElementById("close-sidebar-btn")
+    ?.addEventListener("click", closeOrderSummarySidebar);
+  document
+    .getElementById("sidebar-overlay")
+    ?.addEventListener("click", closeOrderSummarySidebar);
+
+  document
+    .getElementById("sidebar-place-order-btn")
+    ?.addEventListener("click", function () {
+      // Read field value allocations from your form setup
+      const firstName =
+        document.getElementById("customer-first-name")?.value || "";
+      const lastName =
+        document.getElementById("customer-last-name")?.value || "";
+      const email = document.getElementById("customer-email")?.value || "";
+      const phone = document.getElementById("customer-phone")?.value || "";
+      const company =
+        document.getElementById("customer-company")?.value || "N/A";
+      const country = countrySelect ? countrySelect.value : "";
+      const cityState = stateSelect ? stateSelect.value : "";
+      const zip = document.getElementById("customer-zip")?.value || "";
+      const address1 =
+        document.getElementById("customer-address-1")?.value || "";
+      const address2 =
+        document.getElementById("customer-address-2")?.value || "N/A";
+
+      // Pull active items array out of memory
+      const cartData = JSON.parse(localStorage.getItem("shopCart")) || [];
+
+      // Build product list block descriptions for invoices
+      let orderSummaryText = "";
+      cartData.forEach((item) => {
+        orderSummaryText += `${item.name} (Qty: ${item.quantity})\n`;
+      });
+
+      // --- DATA BINDING PACKET ---
+      const finalEmailPacket = {
+        customer_name: `${firstName} ${lastName}`,
+        customer_email: email,
+        customer_phone: phone,
+        customer_company: company,
+        delivery_location: `${address1}, ${address2 || ""}, ${cityState}, ${country} (${zip})`,
+        order_summary: orderSummaryText,
+      };
+
+      // Output to inspect tools panel terminal to verify fields link correctly
+      console.log(
+        "Email packet compiled successfully. Ready for submission server data pipelines:",
+        finalEmailPacket,
+      );
+
+      /*
+        =====================================================
+        EMAILJS ENGINE CONNECTION PREPARATION BLOCK
+        =====================================================
+        To make this submit straight into your email inbox:
+        1. Add the EmailJS script script snippet to your HTML head.
+        2. Uncomment the execution block below:
+
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", finalEmailPacket)
+            .then(() => console.log("Success! Notification email sent."))
+            .catch(err => console.error("EmailJS Error:", err));
+        */
+      closeOrderSummarySidebar();
+
+      // 4. Trigger Live Confirmation Overlay On-Screen Toast Notification
+      showDeliveryStatusToast(`${firstName} ${lastName}`);
+
+      // Wipe cart memory clean upon completion
+      localStorage.removeItem("shopCart");
+    });
+}
+
 // }
 
-// // Custom UI Delivery Animation Overlay Injector
-// function showDeliveryStatusToast(fullName) {
-//   const toast = document.createElement("div");
-//   toast.className =
-//     "fixed bottom-5 right-5 bg-emerald-600 text-white p-6 rounded-lg shadow-2xl z-50 transition-all transform translate-y-10 opacity-0 max-w-sm border border-emerald-500";
-//   toast.innerHTML = `
-//         <div class="flex items-start space-x-3">
-//             <span class="text-2xl">📦</span>
-//             <div>
-//                 <h4 class="font-bold text-lg mb-1">Order Placed, ${fullName}!</h4>
-//                 <p class="text-sm text-emerald-100">Your confirmation receipt details have been sent to your email. Your package is officially on the way!</p>
-//             </div>
-//         </div>
-//     `;
+// Custom UI Delivery Animation Overlay Injector
+function showDeliveryStatusToast(fullName) {
+  const toast = document.createElement("div");
+  toast.className =
+    "fixed bottom-5 right-5 bg-emerald-600 text-white p-6 rounded-lg shadow-2xl z-50 transition-all transform translate-y-10 opacity-0 max-w-sm border border-emerald-500";
+  toast.innerHTML = `
+        <div class="flex items-start space-x-3">
+            <span class="text-2xl">📦</span>
+            <div>
+                <h4 class="font-bold text-lg mb-1">Order Placed, ${fullName}!</h4>
+                <p class="text-sm text-emerald-100">Your confirmation receipt details have been sent to your email. Your package is officially on the way!</p>
+            </div>
+        </div>
+    `;
 
-//   document.body.appendChild(toast);
+  document.body.appendChild(toast);
 
-//   // Fade animation triggers
-//   setTimeout(() => {
-//     toast.classList.remove("translate-y-10", "opacity-0");
-//   }, 100);
+  // Fade animation triggers
+  setTimeout(() => {
+    toast.classList.remove("translate-y-10", "opacity-0");
+  }, 100);
 
-//   // Automatically clear toast and route back to main shop index page after 5 seconds
-//   setTimeout(() => {
-//     toast.classList.add("translate-y-10", "opacity-0");
-//     setTimeout(() => {
-//       toast.remove();
-//       window.location.href = "index.html"; // Make sure this path points back to your shop front
-//     }, 500);
-//   }, 5000);
-// }
-
-// // Make sure your load router calls the initialization checking process:
-// document.addEventListener("DOMContentLoaded", () => {
-//   if (document.getElementById("checkout-form")) initCheckoutPage();
-// });
+  // Automatically clear toast and route back to main shop index page after 5 seconds
+  setTimeout(() => {
+    toast.classList.add("translate-y-10", "opacity-0");
+    setTimeout(() => {
+      toast.remove();
+      window.location.href = "index.html"; // Make sure this path points back to your shop front
+    }, 500);
+  }, 5000);
+}
