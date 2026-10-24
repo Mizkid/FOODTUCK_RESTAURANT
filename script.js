@@ -512,7 +512,7 @@ window.removeItem = function (id) {
 // CHECKOUT PAGE FUNCTION
 
 const localCountryData = {
-  Nigeria: [
+  "Nigeria": [
     "Abia",
     "Adamawa",
     "Akwa Ibom",
@@ -653,16 +653,16 @@ function openOrderSummarySidebar() {
     subtotal += itemTotal;
 
     itemsContainer.innerHTML += `
-    <div class="flex items-center space-x-4 border-b border-gray-200 pb-3 mb-3">
+    <div class="flex items-center space-x-4 border-b border-gray-200 pb-3 mb-3  grid grid-cols-1 sm:grid-cols-1 md:flex lg:flex">
     <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded bg-gray-50 border-gray-100 border">
     <div class="flex-1">
     <h4  class="font-bold text-gray-900 text-sm">${item.name}</h4>
-    <p  class="text-xs text-gray-400">${item.quantity}x @ $${item.price.toFixed(2)}</p>
+    <p  class="text-xs text-gray-400">${item.quantity}x $${item.price.toFixed(2)}</p>
     </div>
-    <span  class="font-semibold text-sm text-gray-900">$${itemTotal.toFixed(2)}</span>
+    <span  class="font-semibold text-sm text-gray-900 mt-3 md:mt-0 lg:mt-0">$${itemTotal.toFixed(2)}</span>
     </div>`;
   });
-  const shippingFee = subtotal > 0 ? 1.0 : 0.0;
+  const shippingFee = subtotal * 0.1;
   const discount = subtotal * 0.1;
   const tax = subtotal * 0.05;
   const cumulativeTotal = subtotal + shippingFee + tax - discount;
@@ -701,7 +701,8 @@ function initCheckoutPage() {
   const countrySelect = document.getElementById("country-select");
   const stateSelect = document.getElementById("state-select");
   const checkoutForm = document.getElementById("checkout-form");
-
+  const proccedBtn = document.getElementById("proceed-btn");
+  
   if (!checkoutForm) {
     console.warn("Target form contact not detected");
     return;
@@ -718,14 +719,13 @@ function initCheckoutPage() {
     countrySelect.addEventListener("change", function () {
       const selectedCountry = this.value;
 
+      stateSelect.innerHTML = `<option value="">Choose your state</option>`;
+
       if (!selectedCountry) {
         stateSelect.disabled = true;
-
-        stateSelect.innerHTML = `<option value="">Choose your state</option>`;
         return;
       }
       stateSelect.disabled = false;
-      stateSelect.innerHTML = `<option value="">Choose your state</option>`;
 
       const states = localCountryData[selectedCountry] || [];
       states.forEach((state) => {

@@ -274,7 +274,7 @@
                 >
                 <select
                   id="customer-state"
-                  required
+                  
                   class="w-full h-[30px] border border-gray-200 mt-1 outline-none rounded"
                 >
                   <option
@@ -343,12 +343,58 @@
               class="flex w-full items-start justify-center gap-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-4"
             >
             <a href="./ShoppingCart.html" class="border border-gray-200 text-sm text-gray-900 font-sharp text-center w-full py-2 hover:bg-amber-500 hover:text-white"><i class="fas fa-arrow-back"></i> Back to cart</a>
-                <button id="" type="submit" class="bg-amber-500 text-sm text-white font-sharp text-center w-full py-2 hover:bg-yellow-300 hover:text-amber-600 cursor-pointer"><i class="fas fa-arrow-back"></i> Proceed to shipping</a>
+                <button id="proceed-to-shipping-btn" type="submit" class="bg-amber-500 text-sm text-white font-sharp text-center w-full py-2 hover:bg-yellow-300 hover:text-amber-600 cursor-pointer"><i class="fas fa-arrow-back"></i> Proceed to shipping</a>
           </div>
           </form>
         </div>
       </div>
     </section>
+
+    <!-- SIDEBAR OVARLAY -->
+     <section id="sidebar-overlay" class="fixed inset-0 z-40 hidden  px-5 py-3 ">
+      <div id="order-summary-sidebar" class="fixed top-0 right-0 h-[100vh] w-[50%] shadow-sm bg-white rounded-sm bg-opacity-10 z-50 transform translate-x-full transition-transform duration-300 px-4 py-3 overflow-y-auto ">
+        <!-- The Content -->
+        <div class=" border border-gray-200 px-4 py-3 rounded-lg h-full shadow-lg flex flex-col items-start justify-start gap-5 bg-white bg-opacity-50">
+          <div class="flex justify-between w-full items-center mb-6  grid grid-cols-1 sm:grid-cols-1 md:flex lg:flex">
+            <h3 class="text-lg font-bold text-gray-900 order-2 md:order-1 lg:order-1">Your Order Summary</h3>
+            <button id="close-sidebar-btn" class="text-gray-500 order-1 md:order-2 lg:order-2 hover:text-amber-500 cursor-pointer text-xl font-semibold">&times;</button>
+          </div>
+
+          <div id="sidebar-items-list" class="space-y-4 mb-3 overflow-y-auto pr-2 w-full">
+            <span class="bg-gray-100 w-full h-[0.5px]"></span>
+          </div>
+
+          <div class="w-full text-xs text-gray-700 mt-4 font-small">
+            <div class="flex justify-between w-full">
+              <span>Sub-total</span>
+              <span id="sidebar-subtotal" class="font-semibold ">$0.00</span>
+            </div>
+            <div class="flex justify-between w-full mt-4">
+              <span>Shipping</span>
+              <span id="sidebar-shipping" class="font-semibold ">$0.00</span>
+            </div>
+            <div class="flex justify-between w-full mt-4">
+              <span>Discount</span>
+              <span id="sidebar-discount" class="font-semibold ">$0.00</span>
+            </div>
+            <div class="flex justify-between w-full mt-4">
+              <span>Tax</span>
+              <span id="sidebar-tax" class="font-semibold ">$0.00</span>
+            </div>
+            <div class="flex flex-col mt-2">
+              <span class="bg-gray-200 w-full h-[0.5px] mt-2"></span>
+              <div class="flex justify-between w-full mt-3">
+                <span class="text-gray-900 text-sm font-bold">Total</span>
+                <span id="sidebar-grand-total" class="font-bold text-gray-900 text-sm ">$0.00</span>
+              </div> 
+            </div>
+           
+          </div>
+
+
+         </div>
+      </div>
+     </section>
 
     <!-- FOOTER -->
     <footer
